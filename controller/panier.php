@@ -14,7 +14,7 @@ switch($_GET["action"]) {
 		if(!empty($_SESSION["cart"])) {
 			foreach($_SESSION["cart"] as $k => $v) {
 					if($_GET["code"] == $k) {
-					     $_SESSION['toto']-=intval($v);
+					    $_SESSION['number_articles']-=1;
 						unset($_SESSION["cart"][$k]);	}
 					if(empty($_SESSION["cart"]))
 						unset($_SESSION["cart"]);
@@ -23,7 +23,7 @@ switch($_GET["action"]) {
 	break;
 	case "empty":
 		unset($_SESSION["cart"]);
-		$_SESSION['toto']=0;
+		$_SESSION['number_articles']=0;
 	break;	
 }
 }

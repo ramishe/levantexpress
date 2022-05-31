@@ -1,3 +1,6 @@
+<?php
+if(!isset($_SESSION['number_articles'])) $_SESSION['number_articles']='';
+?>
 <!doctype html>
 <html lang="fr">
 <head>
@@ -52,8 +55,10 @@
        <div class="shopping_basket">
           <a href="index.php?page=panier"><i class="fa-solid fa-bag-shopping fa-2xl"></i></a>
           <div class="number_articles_in_basket"> 
-             <span id="number_articles_in_basket"></span>
-            <?= $_SESSION['toto'];?>
+             <span id="number_articles_in_basket">
+                 <?=$_SESSION['number_articles'] ?>
+             </span>
+            
           
           </div>
        </div>

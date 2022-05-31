@@ -48,6 +48,9 @@ switch($page){
     case 'users' :
         require './controller/users.php';
         break;
+    case 'registeration_admin' :
+        require './ajax/registeration.php';
+        break;
         
     default:
         require './controller/home.php';

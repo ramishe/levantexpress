@@ -53,18 +53,16 @@ let btn_add_produit = document.getElementsByClassName('btn_add_produit');
 let list_panier = document.getElementById('list_panier');
 let btn_close_popup_panier = document.getElementById('btn_close_popup_panier');
 let cart_content = document.getElementById('cart_content');
+let number_articles_in_basket=document.getElementById('number_articles_in_basket');
 
 btn_close_popup_panier.addEventListener('click',function(){
      list_panier.classList.add('hidden');
 });
-
 for(let i of btn_add_produit){
     i.addEventListener("click", function(e){
         e.preventDefault();
         // récupérer le id du produit cliqué
         let prod_id = e.target.id;
-        console.log( prod_id);
-        // ici faire un appel ajax
         let formData = new FormData();
         formData.append('prod_id', prod_id);
         let obj = { 'method': 'POST', 'body': formData }
@@ -72,20 +70,35 @@ for(let i of btn_add_produit){
             .then(response => response.text())
             .then(data => {
                 cart_content.innerHTML = data;
+                let nb_cart = document.getElementsByClassName('cart_item').length;
+                number_articles_in_basket.innerHTML = nb_cart;
             })
             .catch(err => console.error(err));
-             
-        
-        // le fichier php ajoute cet id dans une variable de SESSION et affiche la liste des produits
-        
-        //dans le retour du ajax
-            // on renvoi le resultat du php que l'on met dans le cart_content
             list_panier.classList.remove('hidden');
-          
-            
     });
 }
 
+//formulaire admin registration
+let form_signup_admin=document.getElementById('form_signup_admin');
+    form_signup_admin.addEventListener("submit", function(e){
+      e.preventDefault();
+    console.log('toto');
+   
+    let formData = new FormData(form_signup_admin);
+     
+       let obj = { 'method': 'POST', 'body': formData }
+        
+        
+        fetch('./controller/registeration_admin.php', obj)
+            .then(response => response.text())
+            .then(data => {
+             //   document.querySelector('.container').innerHTML += data;
+            })
+            .catch(err => console.error(err));
+
+      
+        
+        });
 
 
 });
