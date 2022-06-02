@@ -1,7 +1,6 @@
 <?php
-var_dump($_POST);
-?>
 
+?>
 
 <!doctype html>
 <html lang="fr">

@@ -1,7 +1,7 @@
 <?php
-require_once'model/ManageAdmin.php';
+require_once '../model/ManageAdmin.php';
 $req=new ManageAdmins();
-if(isset($_POST['firstname'])&& $_POST['firstname']!=''){
+if(isset($_POST['firstname']) && $_POST['firstname']!=''){
     $req->createCompteAdmin($_POST['firstname'],$_POST['lastname'],$_POST['birth_date'],$_POST['mail'],$_POST['psd_admin']);
 }
 ?>
@@ -31,7 +31,7 @@ if(isset($_POST['firstname'])&& $_POST['firstname']!=''){
    </div>
       
 <?php
-
+var_dump($_POST);
 ?> 
 </body>
 </html>

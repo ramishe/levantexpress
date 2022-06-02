@@ -22,31 +22,11 @@ $(document).ready(function($) {
     infinite: true,
     arrows: false,
   });
-  
-//gerer popup d'inscription
-let btn_close=document.getElementById('btnClose');
-let btn_open_popup=document.getElementById('btn_open_popup');
-let overlay=document.getElementById('overlay');
-btn_open_popup.addEventListener('click',function(e){
-     e.preventDefault();
-    overlay.classList.remove('hidden');
-btn_close.addEventListener('click',function(){
-    overlay.classList.add('hidden');
-});
-});
+ 
 
-//form identification et inscription       
-let btn_create_account=document.getElementById('create_account');
-let form_signin=document.getElementById('form_signin');
-let form_signup=document.getElementById('form_signup');
-let btn_register_compte=document.getElementById('btn_register_compte');
- form_signin.classList.remove('hidden');
-btn_create_account.addEventListener("click", function(e){
-   e.preventDefault();
-   form_signin.classList.add('hidden');
-   form_signup.classList.remove('hidden');
-   });
-});
+
+});    
+
 
 
 let btn_add_produit = document.getElementsByClassName('btn_add_produit');
@@ -78,8 +58,32 @@ for(let i of btn_add_produit){
     });
 }
 
+let form_signin=document.getElementById('form_signin');
+    form_signin.addEventListener("submit", function(e){
+      e.preventDefault();
+    console.log(form_signin);
+    overlay.classList.add('hidden');
+    let formData = new FormData(form_signin);
+     
+       let obj = { 'method': 'POST', 'body': formData }
+          console.log(obj);
+        
+        fetch('./controller/users.php', obj)
+            .then(response => response.text())
+            .then(data => {
+             //   document.querySelector('.container').innerHTML += data;
+            })
+            .catch(err => console.error(err));
+        
+      
+        
+        });
+
+
+
 //formulaire admin registration
 let form_signup_admin=document.getElementById('form_signup_admin');
+let overlay=document.getElementById('overlay');
     form_signup_admin.addEventListener("submit", function(e){
       e.preventDefault();
     console.log('toto');
@@ -102,3 +106,39 @@ let form_signup_admin=document.getElementById('form_signup_admin');
 
 
 });
+
+
+/*
+
+//form identification et inscription       
+let btn_create_account=document.getElementById('create_account');
+let form_signin=document.getElementById('form_signin');
+let form_signup=document.getElementById('form_signup');
+let btn_register_compte=document.getElementById('btn_register_compte');
+ form_signin.classList.remove('hidden');
+
+   btn_create_account.addEventListener("click", function(e){
+   e.preventDefault();
+   form_signin.classList.add('hidden');
+   form_signup.classList.remove('hidden');
+   }); 
+   
+//gerer popup d'inscription
+let btn_close=document.getElementById('btnClose');
+let btn_open_popup=document.getElementById('btn_open_popup');
+let overlay=document.getElementById('overlay');
+let user_name=document.getElementById('user_name');
+console.log(user_name.textContent);
+
+btn_open_popup.addEventListener('click',function(e){
+     e.preventDefault();
+    if(!user_name.textContent){
+    overlay.classList.remove('hidden');
+    };
+btn_close.addEventListener('click',function(){
+    overlay.classList.add('hidden');
+
+});
+});   
+   
+*/   

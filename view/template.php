@@ -1,5 +1,7 @@
 <?php
 if(!isset($_SESSION['number_articles'])) $_SESSION['number_articles']='';
+if(!isset($_SESSION["username"])) $_SESSION["username"]='';
+
 ?>
 <!doctype html>
 <html lang="fr">
@@ -10,6 +12,8 @@ if(!isset($_SESSION['number_articles'])) $_SESSION['number_articles']='';
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+    
+    
     <script type="text/javascript" src="public/js/site.js"></script>
 </head>
 <body>
@@ -49,7 +53,8 @@ if(!isset($_SESSION['number_articles'])) $_SESSION['number_articles']='';
           <a href=""><i class="fa-brands fa-gratipay fa-2xl"></i></a>
        </div>
        <div class="sign_in">
-          <a href="" id="btn_open_popup"><i class="fa-solid fa-circle-user fa-2xl"></i></a>
+          <a href="index.php?page=login" id="btn_open_popup"><i class="fa-solid fa-circle-user fa-2xl"></i></a>
+          <span id="user_name"><?=$_SESSION["username"]?></span>
           
        </div>
        <div class="shopping_basket">
@@ -86,18 +91,22 @@ if(!isset($_SESSION['number_articles'])) $_SESSION['number_articles']='';
   <main>
       <?=$content; ?>
        <div class="overlay hidden" id="overlay">
-             <div class="user_popup scroller">
+             <div class="user_popup scroller" id="user_popup">
                  <span id="btnClose" class="btnClose">&times;</span>
-                 <form action="index.php?page=users" method="POST" id="form_signin" class="form_inscription hidden">
+<!--
+                  <form action="" id="form_signin" class="form_inscription hidden">
                      <h2>Inscrivez vous</h2>
-                     <label for="verifier_user">Nom d'utilisateur</label><br>
-                     <input type="text" name="verifier_user" placeholder=""/><br>
-                     <label for="verifier_psd">mot de passe</label><br>
-                     <input type="password" name="verifier_psd" placeholder=""/><br>
+                     <p>
+                     <label for="verifier_user">Nom d'utilisateur</label>
+                     <input type="text" name="verifier_user" placeholder=""/>
+                      <label for="verifier_user">Nom d'utilisateur</label>
+                     <input type="text" name="verifier_user" placeholder=""/>
+                     <label for="verifier_psd">Mot de passe</label>
+                     <input type="password" name="verifier_psd" placeholder=""/>
                      <input type="submit" value="identifier" name="signin"/>
-                     <p>Vous n'avez pas encore de compte? <a href="" id="create_account">Creér un compte</a> </p>
+                     </p>
                  </form>
-                 
+                 <p>Vous n'avez pas encore de compte? <a href="" id="create_account">Creér un compte</a> </p>
                   
                   <form action="index.php?page=users" method="POST" id="form_signup" class="form_inscription hidden"> 
                      <h2>Creéz votre compte</h2>
@@ -128,10 +137,11 @@ if(!isset($_SESSION['number_articles'])) $_SESSION['number_articles']='';
                      <label for=""></label><br>
                      <input type="submit" value="Enregistrer" name="submit" id="btn_register_compte"/>
                      
-                 </form>
-                 
-             </div>
-      
+                 </form> 
+                
+          -->  
+             
+      </div>
   </main>
   <footer>
      <div class="livraison">
