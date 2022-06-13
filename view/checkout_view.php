@@ -69,7 +69,7 @@ if(isset($_SESSION["cart"])){
        } else $item_price = $_SESSION['cart'][$r['id']] * $r["price"]*((100-intval($r['discount']))/100);
       $resume_panier.='<div class="un_produit_final_panier">
                        
-			           <div class="name_produit_final_panier"><img src="./public/images/categories/'.$r['category_id'].'/'.$r['photo_name'].'.png" class="cart-item-image"/>'. $r["name"].'x'.$_SESSION['cart'][$r['id']].'
+			           <div class="name_produit_final_panier"><img src="./public/images/categories/'.$r['category_id'].'/'.$r['photo_name'].'" class="cart-item-image"/>'. $r["name"].'x'.$_SESSION['cart'][$r['id']].'
 			           </div>
 			           <div class="prix_produit_final_panier">'.number_format($item_price,2).' €
 			           </div>

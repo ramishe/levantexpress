@@ -24,7 +24,7 @@ if(isset($_SESSION['cart'])){
        } else $item_price = $_SESSION['cart'][$r['id']] * $r["price"]*((100-intval($r['discount']))/100);
          
          $table_shopping.='	<tr>
-			                <td><img src="./public/images/categories/'.$r['category_id'].'/'.$r['photo_name'].'.png" class="cart-item-image"/>'. $r["name"].';
+			                <td><img src="./public/images/categories/'.$r['category_id'].'/'.$r['photo_name'].'" class="cart-item-image"/>'. $r["name"].';
 			                </td>
 			                <td>'.$r["discount"].' %</td>
 			                <td style="text-align:right;">'.$_SESSION['cart'][$r['id']].'</td>

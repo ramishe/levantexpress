@@ -6,7 +6,7 @@ if(!isset($_SESSION["loggedin_admin"]) || $_SESSION["loggedin_admin"] !== true){
 }
 
     ob_start();
-?> <div id="nn"></div>
+?> 
     <form id="form_new_produit" enctype="multipart/form-data"  action="index.php?page=welcome_admin" method="POST">
       <fieldset>
         <legend>Informations de produits</legend>

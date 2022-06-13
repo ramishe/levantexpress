@@ -34,8 +34,10 @@ return $db;
         return $db->lastInsertId();
     }
     
-    
-     protected function crypterPassword($plaintext_password){
+}
+
+/*
+protected function crypterPassword($plaintext_password){
          $hash = password_hash($plaintext_password, 
           PASSWORD_DEFAULT);
           return $hash;
@@ -50,6 +52,4 @@ return $db;
          }
           
      }
-     
-    
-}
+*/

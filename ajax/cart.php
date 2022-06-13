@@ -18,7 +18,7 @@ if(isset($_POST['prod_id'])){
         $content_cart .= '<div class="cart_item">
                            <div class="items_info">
                              <div class="image_panier">
-                               <img src="./public/images/categories/'.$r['category_id'].'/'.$r['photo_name'].'.png">
+                               <img src="./public/images/categories/'.$r['category_id'].'/'.$r['photo_name'].'">
                              </div>
                              <div class="info_panier">'.$r['name'].'<br>prix:'.$r['price'].'€ <br>promotion:'.$r['discount'].'<br>quantité:'.$quantity.'
                              </div>
