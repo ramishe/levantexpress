@@ -1,5 +1,5 @@
 <?php
-session_start();
+var_dump($_POST);
 
 require_once '../model/ManageCategory.php';
 $req = new ManageCategories();
@@ -17,12 +17,3 @@ if(isset($_POST['sections'])){
     }
 }
 
-
-
-
-
-
-
-if(isset($_POST['photoname'])){
-$_SESSION['photoname'] = $_POST['photoname'];
-}
