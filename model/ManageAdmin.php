@@ -15,16 +15,18 @@ class ManageAdmin extends Manage {
                   'tva' => $post['tva'],
                   'small_desc' => $post['small_desc'],
                   'photo_name' => ''];
+            
          $query = "INSERT INTO product(name,description,sku,section_id,category_id,inventory,discount,price,tva,small_desc,photo_name) VALUES(:name,:description,:sku,:section_id,:category_id,:inventory,:discount,:price,:tva,:small_desc,:photo_name)";  
+       // $query = "INSERT INTO product SET name=:name,description:=description,sku:=sku,section_id:=section_id,category_id:=category_id,inventory:=inventory,discount:=discount,price:=price,tva:=tva,small_desc:=small_desc,photo_name:=photo_name)";  
          $prod_id = $this->setQuery($query, $data) ;
          
          if(isset($files['photo_produit'])) {
              $photo_name = $prod_id.'.jpg';
-             $folder = '../public/images/categories/'.intval($post['category_id']).'/';
-             if(!file_exisits($folder)) {
+             $folder = './public/images/categories/'.intval($post['category_id']).'/';
+             if(!file_exists($folder)) {
                  mkdir($folder,0755);
              }
-             moveuploadedfile($_FILES['photo_produit']['tmp_name'], $folder.$photo_name);
+             move_uploaded_file($_FILES['photo_produit']['tmp_name'], $folder.$photo_name);
               $data = ['photo_name' => $photo_name,
                 'id'=>$prod_id];
              $query = "UPDATE product SET photo_name=:photo_name WHERE id=:id";  

@@ -10,8 +10,8 @@ if(!isset($_SESSION["loggedin_admin"]) || $_SESSION["loggedin_admin"] !== true){
     <form id="form_new_produit" enctype="multipart/form-data"  action="index.php?page=welcome_admin" method="POST">
       <fieldset>
         <legend>Informations de produits</legend>
-        <label for="nom">Nom d'produit:</label>
-        <input type="text" name="nom" id="name_new_produit">
+        <label for="name">Nom d'produit:</label>
+        <input type="text" name="name" id="name_new_produit">
         <label for="small_desc">Description essentielle:</label>
         <input type="text" name="small_desc" id="small_desc">
        
@@ -22,8 +22,8 @@ if(!isset($_SESSION["loggedin_admin"]) || $_SESSION["loggedin_admin"] !== true){
         <legend>Classe de produit:</legend>
          <label for="description">Description:</label>
         <textarea name="description" id="description" rows="10" cols="33"></textarea>
-        <label for="sections">Choisir un section:</label>
-         <select name="sections" id="sections" required>
+        <label for="section_id">Choisir un section:</label>
+         <select name="section_id" id="sections" required>
             <option value="">--Veuillez choisir une option--</option>
 <?php
 $info_Rayon= $ray->getRayonsList();
@@ -35,8 +35,8 @@ while($r=$info_Rayon->fetch(PDO::FETCH_ASSOC)){
 ?>
          </select>
          
-         <label for="categories">Choisir un categorie:</label>
-         <select name="categories" id="categories" required>
+         <label for="category_id">Choisir un categorie:</label>
+         <select name="category_id" id="categories" required>
             <option value="">--Choisissez d'abord une section--</option>
          </select>
     </fieldset>
