@@ -13,13 +13,13 @@ while($r=$info_allproducts->fetch(PDO::FETCH_ASSOC)){
                     
                     <div class="products_photo_promotion">
                              <div class="products_photo">
-                                <a href="index.php?page=product&name='.$r['name'].'&id='.$r['id'].'"     ><img src="./public/images/categories/'.$r['category_id'].'/'     .$r['photo_name'].'.png"></a>
+                                <a href="index.php?page=product&name='.$r['name'].'&id='.$r['id'].'"     ><img src="./public/images/categories/'.$r['category_id'].'/'.$r['photo_name'].'.png"></a>
                              </div>
                              <div class="products_promotion">
                                  '.$promotion.'
                              </div>
-                             <div class="products_wishlist">
-                              <a href=""><i class="fa-solid fa-heart fa-2x btn_wishlist"></i></a>
+                             <div >
+                              <a href="" id="wl'.$r['id'].'" class="products_wishlist"><i class="fa-solid fa-heart fa-2x btn_wishlist"></i></a>
                              </div>
                             
                               <h3>'.$r['name'].'</h3>

@@ -5,16 +5,22 @@ require_once'Manage.php';
 class ManageCategories extends Manage {
     
         public function getCategoriesList():object{
+            $data = [];
+            $qeury = "SELECT * FROM categories";
    
-             return $this->getQuery("SELECT * FROM categories");
-     }
-        public function getCategory(int $id):object{
- 
-              return $this->getQuery("SELECT * FROM categories WHERE section_id='".$id."'") ;
+             return $this->getQuery($qeury,$data);
      }
      
+    public function getCategory(int $id):object{
+        $data = ['id' => $id];
+        $qeury = "SELECT * FROM categories WHERE section_id=:id";
+        return $this->getQuery($qeury,$data);
+    }
+     
     public function deleteCategory(int $id):object {
-         return $this->getQuery("DELETE  FROM categories WHERE id='".$id."'") ;
+           $data = ['id'=>$id];
+           $qeury = "DELETE  FROM categories WHERE id=:id";
+           $this->getQuery($data,$qeury) ;
     }
      
 

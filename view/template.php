@@ -1,4 +1,14 @@
 <?php
+ob_start();
+?>
+      <a href="index.php?page=rayons" > Les rayons</a>
+      <a href="index.php">Accueil</a>
+      <a href="index.php?page=allproducts">Les produits</a>
+      <a href="index.php?page=promotion">Promotion</a>
+      <a href="index.php?page=contact">Contact</a>
+      <a href="index.php?page=about">A propos</a>
+<?php
+$menu = ob_get_clean();
 if(!isset($_SESSION['number_articles'])) $_SESSION['number_articles']='';
 if(!isset($_SESSION["username"])) $_SESSION["username"]='';
 
@@ -6,14 +16,15 @@ if(!isset($_SESSION["username"])) $_SESSION["username"]='';
 <!doctype html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Levant-Express</title>
-    <link rel="stylesheet" href="./public/css/generalstyle.css" type="text/css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
-    
-    
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <meta name="viewport" content="width=device-width,initial-scale=1">
+     <title>Levant-Express</title>
+     <link rel="stylesheet" href="./public/css/generalstyle.css" type="text/css"/>
+     <link rel="stylesheet" href="./public/css/users.css" type="text/css"/>
+   
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+     <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
     <script type="text/javascript" src="public/js/site.js"></script>
 </head>
 <body>
@@ -40,7 +51,7 @@ if(!isset($_SESSION["username"])) $_SESSION["username"]='';
      </div>
      <div class="middle_bar">
        <div class="logo">
-         <img src="./public/images/logo-levant-expres.png" alt="logo levant expres"></img>
+         <a href="index.php"><img src="./public/images/logo-levant-expres.png" alt="logo levant expres"></img></a>
        </div>
        <div class="filed_search">
           <form role="search" action="" method="POST">
@@ -50,7 +61,7 @@ if(!isset($_SESSION["username"])) $_SESSION["username"]='';
           </form>
        </div>  
        <div class="wishlist">
-          <a href=""><i class="fa-brands fa-gratipay fa-2xl"></i></a>
+          <a href="index.php?page=wishlist"><i class="fa-brands fa-gratipay fa-2xl"></i></a>
        </div>
        <div class="sign_in">
           <a href="index.php?page=login" id="btn_open_popup"><i class="fa-solid fa-circle-user fa-2xl"></i></a>
@@ -70,15 +81,10 @@ if(!isset($_SESSION["username"])) $_SESSION["username"]='';
       
      </div> 
      <nav>
-      <a href="index.php?action=menu" ><i class="fa-solid fa-bars fa-xl" id="rayon"> </i></a>
-      <a href="index.php?page=rayons" > Les rayons</a>
-      <a href="index.php">Accueil</a>
-      <a href="index.php?page=allproducts">Les produits</a>
-      <a href="index.php?page=promotion">Promotion</a>
-      <a href="index.php?page=contact">Contact</a>
-      <a href="index.php?page=about">A propos</a>
+         <a href="index.php?action=menu" ><i class="fa-solid fa-bars fa-xl" id="rayon"> </i></a>
+      <?=$menu?>
     </nav>
-    <div id="liste_rayon" class="liste_rayon"><?=$liste_rayon?></div>
+    <div id="liste_rayon" class="liste_rayon"><span id="btnClose1" class="btnClose">&times;</span><?=$menu?></div>
     
     <div id="list_panier" class="list_panier hidden">
         <span id="btn_close_popup_panier" class="btnClose">

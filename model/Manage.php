@@ -18,12 +18,23 @@ return $db;
 
 }
 
-    protected function getQuery($query,$data=[]){
+    protected function getQuery(string $query,array $data=[]):object {
         $db= $this->db_connect();
         $stmt = $db->prepare($query);
         $stmt->execute($data);
         return $stmt;
     }
+    
+    
+    
+    protected function setQuery(string $query,array $data=[]):int {
+        $db= $this->db_connect();
+        $stmt = $db->prepare($query);
+        $stmt->execute($data);
+        return $db->lastInsertId();
+    }
+    
+    
      protected function crypterPassword($plaintext_password){
          $hash = password_hash($plaintext_password, 
           PASSWORD_DEFAULT);

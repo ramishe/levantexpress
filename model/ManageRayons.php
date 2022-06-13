@@ -5,8 +5,9 @@ require_once'Manage.php';
 class ManageRayons extends Manage {
     
     public function getRayonsList():object{
-    
-        return $this->getQuery("SELECT id,name,photo_section FROM section");
+        $data = [];
+        $query = "SELECT id,name,photo_section FROM section"; 
+        return $this->getQuery($query,$data);
     }
     
     public function getRayonsNav():string {
