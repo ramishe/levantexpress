@@ -56,9 +56,12 @@ if(!isset($_SESSION["username"])) $_SESSION["username"]='';
        <div class="filed_search">
           <form role="search" action="" method="POST">
 
-            <input type="search"  id="moteur_recherch" placeholder="cherchez vos produits"/>
+            <input type="search"  id="bar_recherch" placeholder="cherchez vos produits"/>
              <i class="fa-solid fa-magnifying-glass fa-2xl"></i>
           </form>
+          <div class="box_search">
+              
+          </div>
        </div>  
        <div class="wishlist">
           <a href="index.php?page=wishlist"><i class="fa-brands fa-gratipay fa-2xl"></i></a>

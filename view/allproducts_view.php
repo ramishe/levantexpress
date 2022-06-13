@@ -1,11 +1,43 @@
 <?php
+/*
+ob_start();
+?>
+<div class="search_wrapper">
+ <label for="search">Search Users</label>
+ <input type="text" name="search" id="search"/>
+</div>
+ <div class="user_cards">
+   <div class="cards">
+     <div class="header">my name</div>
+        <div class="body"> email@gmail.com</div>
+   </div>
+   <div class="cards">
+     <div class="header">my name</div>
+        <div class="body"> email@gmail.com</div>
+   </div>
+   <div class="cards">
+     <div class="header">my name</div>
+        <div class="body"> email@gmail.com</div>
+   </div>
+   <div class="cards">
+     <div class="header">my name</div>
+        <div class="body"> email@gmail.com</div>
+   </div>
+ </div>
+</div>
+<?php
+$content=ob_get_clean();
+*/
 $content='<div class="container_products">';
 while($r=$info_allproducts->fetch(PDO::FETCH_ASSOC)){
+    
     if($r['discount']==0){
-     $promotion='';
-     $price_promotion='';
+     $promotion = '';
+     $price_promotion = '';
+     $price_anyway = $r['price'];
     }
     else{
+      $price_anyway = $r['price']-($r['price']*$r['discount']/100);
      $promotion='<p>'.$r['discount'].'%</p>';   
      $price_promotion='<p class="price_promotion">'.$r['price']-($r['price']*$r['discount']/100) .' <span class="type_money">€</span></p>';
                          }
@@ -26,7 +58,7 @@ while($r=$info_allproducts->fetch(PDO::FETCH_ASSOC)){
                              
                      </div>
                     <div class="price_products_dans_un_category">
-                        <p>'.$r['price'].'€</p>
+                        <p>'.$price_anyway.'€</p>
                     </div>
                         <a href="" id="'.$r['id'].'" class="btn_add_produit">Ajouter au panier</a>
                  </div>

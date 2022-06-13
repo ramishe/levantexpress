@@ -206,7 +206,25 @@ if(form_for_payer){
 
 };
 
-//gérer fomulaire new produit
+//gérer fomulaire search
+let bar_recherch = document.getElementById('bar_recherch');
+bar_recherch.addEventListener("input", function(){
+        
+   let wordsearch = document.getElementById('bar_recherch').value;     
+   console.log(wordsearch);
+let formData = new FormData();
+formData.append('wordsearch',wordsearch);
+        let obj = { 'method': 'POST', 'body': formData }
+        
+        fetch('./ajax/search.php', obj)
+            .then(response => response.text())
+            .then(data => {
+           document.querySelector('.box_search').innerHTML = data;
+            })
+            .catch(err => console.error(err));
+
+
+});
 
 
 

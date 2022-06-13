@@ -17,7 +17,6 @@ class ManageAdmin extends Manage {
                   'photo_name' => ''];
             
          $query = "INSERT INTO product(name,description,sku,section_id,category_id,inventory,discount,price,tva,small_desc,photo_name) VALUES(:name,:description,:sku,:section_id,:category_id,:inventory,:discount,:price,:tva,:small_desc,:photo_name)";  
-       // $query = "INSERT INTO product SET name=:name,description:=description,sku:=sku,section_id:=section_id,category_id:=category_id,inventory:=inventory,discount:=discount,price:=price,tva:=tva,small_desc:=small_desc,photo_name:=photo_name)";  
          $prod_id = $this->setQuery($query, $data) ;
          
          if(isset($files['photo_produit'])) {
