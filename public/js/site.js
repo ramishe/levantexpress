@@ -191,7 +191,7 @@ if(form_for_payer){
     form_for_payer.addEventListener("submit", function(e){
         e.preventDefault();
            // console.log(e.target.id);
-        
+        let container_checkout = document.getElementById('container_checkout');
         let radio = document.querySelector('input[name="radio"]:checked').value;
         let formData = new FormData(form_for_payer);
         let obj = { 'method': 'POST', 'body': formData }
@@ -199,7 +199,8 @@ if(form_for_payer){
         fetch('./ajax/checkout.php', obj)
             .then(response => response.text())
             .then(data => {
-           document.querySelector('.final_panier_pour_payment').innerHTML = data;
+           //document.querySelector('.final_panier_pour_payment').innerHTML = data;
+            container_checkout.innerHTML = data;
             })
             .catch(err => console.error(err));
     });

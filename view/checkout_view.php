@@ -54,7 +54,7 @@ if(isset($_SESSION["cart"])){
    </form>
 <?php
    $form_infos=ob_get_clean();
-   $resume_panier='<div class="container_checkout">
+   $resume_panier='<div class="container_checkout" id="container_checkout">
                     <div class="infos_personnelles_checkout">
                     '.$form_infos.'
                     </div>
@@ -96,7 +96,7 @@ if(isset($_SESSION["cart"])){
                            <p>'.$u['shipping_address'].'</p>
                         </fieldset>
                        
-                           <input type="submit" name="payer"   value="Payer" class="normal_btn">
+                           <input type="submit" name="payer" value="Payer" class="normal_btn">
                         </form>
                     
                   </div>
@@ -105,9 +105,6 @@ if(isset($_SESSION["cart"])){
 }else {
     $resume_panier="Il n'y a aucan produit pour paiment";
 }
-
-
-
 $content = $resume_panier;
 
 require 'template.php';

@@ -15,15 +15,26 @@ if(isset($_POST['mail']) && isset($_POST['shipping_address'])){
 </div>
 <?php
 }
+
 if(isset($_POST['radio'])){
-$status=1;
-$tot = number_format($_SESSION['total_price'], 2);
-var_dump($_POST);
- foreach($_SESSION['cart'] as $prod_id => $quantity){
-     var_dump($prod_id);
-     var_dump($quantity);
- $user->enregistrerInfosDeLaCommande($_SESSION['id'],$prod_id,$prod_id,$tot,$_POST['radio'],$status);
- 
- } 
+   $tot = number_format($_SESSION['total_price'], 2);
+   $id_order = $user->enregisterOrder($_SESSION['id']);
+   foreach($_SESSION['cart'] as $prod_id => $quantity){
+     $user->enregisterItemsDeUnOrder($id_order,$prod_id,$quantity);
+   } 
+   $id_payment = $user->enregisterPaymentDeUnOrder($id_order,$tot,$_POST['radio']);
+   $user->metrreIdPaymentDansOrder($id_payment,$_SESSION['id']);
+   unset($_SESSION["cart"]);
+		$_SESSION['number_articles']=0;
+		unset($_SESSION['noms_produits']);
+?>
+<div class="message_modification">
+    <p><strong> Merci d'avoir acheté sur notre site.</strong>Nous n'avons pas activé l'aventage de payer en ligne jusqu'a maintenant, mais  nous avons bien enregisté votre order.<strong>Nous vous contactrons bientôt </strong></p>
+    <a href="index.php" class="btn_modifier"> Retourner à la page d'accueil</a>
+</div>
+<?php
+} else {
+    echo'Veuillez choisir un moyen de payment';
 }
+
 

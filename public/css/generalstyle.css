@@ -115,6 +115,47 @@ form select{
     border-radius:10px  ;
     border:1px solid #662d91;
 }
+.box_search{
+    width: 50%;
+    position: absolute;
+    z-index: 10;
+    background-color: #F4DEEB;
+    left: 20%;
+   
+
+}
+.produit_de_result_de_cherche{
+    display:flex;
+   
+    width:100%;
+    height:100px;
+    text-overflow: clip;
+    border-bottom:1px solid #662d91;
+    
+}
+.product_photo_cherche{
+    width:20%;
+    height:100px;
+   
+}
+.product_photo_cherche img{
+    width:100%;
+    object-fit: cover;
+     box-sizing:border-box;
+      height:100%;
+}
+.info_result_cherche{
+    width:70%;
+    text-overflow: clip;
+    
+}
+
+.info_result_cherche p{
+  
+      white-space: nowrap;
+  overflow: hidden;
+}
+
 .wishlist,.shopping_basket{
     width:5%;
     margin:auto;

@@ -4,7 +4,7 @@ class ManageProducts extends Manage {
     
     public function getProduitsDeCategory(int $id) :object{
        $data = ['id'=>$id];
-       $query = "SELECT product.*  FROM product JOIN categories WHERE product.category_id=AND  categories.id=:id";
+       $query = "SELECT product.*  FROM product JOIN categories WHERE product.category_id=:id AND  categories.id=:id";
        return $this->getQuery($query,$data);
      }
      
@@ -33,8 +33,8 @@ class ManageProducts extends Manage {
      }
      
      public function searchProduct($wordsearch) :object{
-       $data = ['name' => $wordsearch.'%'];
-       $query = "SELECT * FROM product WHERE name LIKE :name";
+       $data = ['name' => '%'.$wordsearch.'%'];
+       $query = "SELECT * FROM product WHERE name LIKE :name OR description LIKE :name";
        return $this->getQuery($query,$data);
      }
      
