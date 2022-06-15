@@ -54,8 +54,8 @@ while($r=$info_Rayon->fetch(PDO::FETCH_ASSOC)){
     </fieldset>
     <fieldset>
          <legend>Image de produit:</legend>
-         <p>Veuillez ajouter une image principale du produit au format :<strong>png</strong> </p>
-         <input type="file" name="photo_produit"  class="photo_produit" id="photo_produit" accept=".png">
+         <p>Veuillez ajouter une image principale du produit au format:</p>
+         <input type="file" name="photo_produit"  class="photo_produit" id="photo_produit">
     </fieldset>
     <input type="submit" name="submit" id="submit"  value="Ajouter le produit" class="btn_ajoute">
    </form>

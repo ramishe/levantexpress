@@ -16,4 +16,3 @@ if(isset($_POST['sections'])){
         echo '<option value="">Pas de catégorie pour cette section</option>';
     }
 }
-

@@ -22,14 +22,14 @@ if(isset($_POST['radio'])){
    foreach($_SESSION['cart'] as $prod_id => $quantity){
      $user->enregisterItemsDeUnOrder($id_order,$prod_id,$quantity);
    } 
-   $id_payment = $user->enregisterPaymentDeUnOrder($id_order,$tot,$_POST['radio']);
-   $user->metrreIdPaymentDansOrder($id_payment,$_SESSION['id']);
+   $id_payment = $user->enregisterPaymentDeUnOrder(intval($id_order),$tot,$_POST['radio']);
+   $user->metrreIdPaymentDansOrder($id_payment,$id_order);
    unset($_SESSION["cart"]);
 		$_SESSION['number_articles']=0;
 		unset($_SESSION['noms_produits']);
 ?>
 <div class="message_modification">
-    <p><strong> Merci d'avoir acheté sur notre site.</strong>Nous n'avons pas activé l'aventage de payer en ligne jusqu'a maintenant, mais  nous avons bien enregisté votre order.<strong>Nous vous contactrons bientôt </strong></p>
+    <p><strong> Merci d'avoir acheté sur notre site.</strong>Nous n'avons pas activé l'aventage de payer en ligne jusqu'a maintenant, mais  nous avons bien enregisté votre order.<strong>Nous vous contacterons bientôt </strong></p>
     <a href="index.php" class="btn_modifier"> Retourner à la page d'accueil</a>
 </div>
 <?php

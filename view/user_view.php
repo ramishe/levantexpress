@@ -4,8 +4,12 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: index.php?page=login");
     exit;
 }
+  $message_alert='';
+var_dump($_POST);
 if(isset($_POST['submit']) && $_POST['submit'] = 'submit'){
-   $user->updateInfoDeCompte($_SESSION["id"],$_POST['first_name'],$_POST['last_name'],$_POST['birth_date'],$_POST['mail'],intval($_POST['telephone']),$_POST['shipping_address'],$_POST['home_address'],$_POST['country'],$_POST['city'],$_POST['code_postal']);   
+    if($_POST['first_name'] != '' && $_POST['last_name'] !='' && $_POST['mail'] != '' && $_POST['telephone'] != ''&& $_POST['shipping_address'] != ''&& $_POST['city'] != ''&& $_POST['country'] != ''&& $_POST['code_postal'] != ''&& $_POST['home_address'] != ''){
+        $user->updateInfoDeCompte($_SESSION["id"],$_POST['first_name'],$_POST['last_name'],$_POST['birth_date'],$_POST['mail'],intval($_POST['telephone']),$_POST['shipping_address'],$_POST['home_address'],$_POST['country'],$_POST['city'],$_POST['code_postal']);  
+    } else $message_alert='<p class="rouge">Veuillez remplir toutes les champs</p>';
 }
 $affichage='Wlcome';
 
@@ -16,6 +20,7 @@ if(isset($_GET['action'])) {
               $form_infos='';
              break;
         case'mesinfos':
+           
              $user_infos = $user->getInfosOfUser($_SESSION["id"]);
              $u = $user_infos->fetch(PDO::FETCH_ASSOC);
              ob_start();
@@ -91,6 +96,7 @@ ob_start();
     </ul>
    </div>
   <div class="affichage_operations_user">
+     <?=$message_alert?>
     <?=$affichage?>
   </div>
 </div>

@@ -18,13 +18,13 @@ let affichage_operations_admin = document.getElementById('affichage_operations_a
             .catch(err => console.error(err));
  })
 
-let photo_produit = document.getElementById('photo_produit');
-photo_produit.addEventListener('change', function(e){
- e.preventDefault()
+//let photo_produit = document.getElementById('photo_produit');
+//photo_produit.addEventListener('change', function(e){
+ //e.preventDefault()
  
- console.log(e);
+ //console.log(e);
  
-})
+//})
 
 
 });

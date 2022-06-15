@@ -26,15 +26,6 @@ if(isset($_POST['submit'])) {
     
 }
 
-
-
-
-
-
-
-
-
-
 $info_Rayon= $ray->getRayonsList();
 
 

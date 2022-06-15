@@ -36,20 +36,3 @@ return $db;
     
 }
 
-/*
-protected function crypterPassword($plaintext_password){
-         $hash = password_hash($plaintext_password, 
-          PASSWORD_DEFAULT);
-          return $hash;
-     }
-     protected function decrypterPassword($plaintext_password,$hash){
-          $verify = password_verify($plaintext_password, $hash);
-          if ($verify) {
-              return $verify;
-          }
-          else {
-              echo 'Incorrect Password!';
-         }
-          
-     }
-*/

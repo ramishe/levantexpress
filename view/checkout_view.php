@@ -80,7 +80,7 @@ if(isset($_SESSION["cart"])){
                           <p>Numbre d"articles:<strong>'.$_SESSION['total_quantity'].'</strong></p>
                           <p><strong>'.number_format($_SESSION['total_price'], 2).' €</strong></p>
                       </div>
-                      <form action="" method="" id="form_for_payer">
+                      <form action="" method="POST" id="form_for_payer">
                         <fieldset class="filedset_moyen_paiment" >
                           '. $message_error.'
                            <legend>Moyen de paiment</legend>
