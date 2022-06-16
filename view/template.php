@@ -1,12 +1,13 @@
 <?php
 ob_start();
-?>
+?> 
       <a href="index.php?page=rayons" > Les rayons</a>
       <a href="index.php">Accueil</a>
       <a href="index.php?page=allproducts">Les produits</a>
       <a href="index.php?page=promotion">Promotion</a>
       <a href="index.php?page=contact">Contact</a>
       <a href="index.php?page=about">A propos</a>
+   
 <?php
 $menu = ob_get_clean();
 if(!isset($_SESSION['number_articles'])) $_SESSION['number_articles']='';
@@ -57,7 +58,7 @@ if(!isset($_SESSION["username"])) $_SESSION["username"]='';
           <form role="search" action="" method="POST">
 
             <input type="search"  id="bar_recherch" placeholder="cherchez vos produits"/>
-             <i class="fa-solid fa-magnifying-glass fa-2xl"></i>
+            
           </form>
           <div class="box_search">
               
@@ -73,10 +74,10 @@ if(!isset($_SESSION["username"])) $_SESSION["username"]='';
        </div>
        <div class="shopping_basket">
           <a href="index.php?page=panier"><i class="fa-solid fa-bag-shopping fa-2xl"></i></a>
-          <div class="number_articles_in_basket"> 
-             <span id="number_articles_in_basket">
+          <div class="number_articles_in_basket" id="number_articles_in_basket"> 
+            
                  <?=$_SESSION['number_articles'] ?>
-             </span>
+            
             
           
           </div>
@@ -84,8 +85,10 @@ if(!isset($_SESSION["username"])) $_SESSION["username"]='';
       
      </div> 
      <nav>
-         <a href="index.php?action=menu" ><i class="fa-solid fa-bars fa-xl" id="rayon"> </i></a>
-      <?=$menu?>
+         <a href="index.php?action=menu" id="rayon"><i class="fa-solid fa-bars fa-xl"  > </i></a>
+         <div class="menu_nav">
+          <?=$menu?>
+          </div>
     </nav>
     <div id="liste_rayon" class="liste_rayon"><span id="btnClose1" class="btnClose">&times;</span><?=$menu?></div>
     
@@ -102,53 +105,6 @@ if(!isset($_SESSION["username"])) $_SESSION["username"]='';
        <div class="overlay hidden" id="overlay">
              <div class="user_popup scroller" id="user_popup">
                  <span id="btnClose" class="btnClose">&times;</span>
-<!--
-                  <form action="" id="form_signin" class="form_inscription hidden">
-                     <h2>Inscrivez vous</h2>
-                     <p>
-                     <label for="verifier_user">Nom d'utilisateur</label>
-                     <input type="text" name="verifier_user" placeholder=""/>
-                      <label for="verifier_user">Nom d'utilisateur</label>
-                     <input type="text" name="verifier_user" placeholder=""/>
-                     <label for="verifier_psd">Mot de passe</label>
-                     <input type="password" name="verifier_psd" placeholder=""/>
-                     <input type="submit" value="identifier" name="signin"/>
-                     </p>
-                 </form>
-                 <p>Vous n'avez pas encore de compte? <a href="" id="create_account">Creér un compte</a> </p>
-                  
-                  <form action="index.php?page=users" method="POST" id="form_signup" class="form_inscription hidden"> 
-                     <h2>Creéz votre compte</h2>
-                     <label for="firstname">Prenom</label><br>
-                     <input type="text" name="firstname" placeholder="Prenom" required/><br>
-                     <label for="lastname">Nom</label><br>
-                     <input type="text" name="lastname" placeholder="Nom" required/><br>
-                     <label for="birth_date">Date de naissance</label><br>
-                     <input type="date" name="birth_date" placeholder="Date de naissance" required/><br>
-                     <label for="username">Nom d'utilisateur</label><br>
-                     <input type="text" name="username" placeholder="Nom d'utilisateur" required/><br>
-                     <label for="mail">Email</label><br>  
-                     <input type="email" name="mail" placeholder="Email" required/><br>
-                     <label for="telephone">Telephone</label><br>
-                     <input type="number" name="telephone" placeholder="Telephone"/><br>
-                     <label for="shipping_address">adresse de livraison</label><br>
-                     <input type="text" name="shipping_address" placeholder="Ex: 4 impasse des bleuets" required/><br>
-                     <label for="psd">Mot de passe</label><br>
-                     <input type="password" name="psd" placeholder="Mot de passe" required/><br>
-                     <label for="home_address"></label><br>
-                     <input type="text" name="home_address" placeholder="Ex: 4 impasse des bleuets"/><br>
-                     <label for="country">Pays</label><br>
-                     <input type="text" name="country" placeholder="Ex:Framce"/><br>
-                     <label for="city">Ville</label><br>
-                     <input type="text" name="city" placeholder="Ex: Paris"/><br>
-                     <label for="code_postal">Code_postal</label><br>
-                     <input type="text" name="code_postal" placeholder="Zx:49000"/><br>
-                     <label for=""></label><br>
-                     <input type="submit" value="Enregistrer" name="submit" id="btn_register_compte"/>
-                     
-                 </form> 
-                
-          -->  
              
       </div>
   </main>

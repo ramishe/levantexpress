@@ -25,17 +25,19 @@ $(document).ready(function($) {
    
       });
  
-     $('.diapo_principal_photo_product').slick({
+     $('.diaporama_product').slick({
          slidesToShow: 1,
          slidesToScroll: 1,
          arrows: true,
          fade: true,
-         asNavFor: '.diaporama_product'
+          autoplay:true,
+          autoplaySpeed: 1000,
+         asNavFor: '.diapo_principal_photo_product'
      });
-        $('.diaporama_product').slick({
+        $('.diapo_principal_photo_product').slick({
         idesToShow: 2,
         idesToScroll: 1,
-        NavFor: '.diapo_principal_photo_product',
+        NavFor: '.diaporama_product',
         ts: true,
         nterMode: true,
         cusOnSelect: true

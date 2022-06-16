@@ -1,11 +1,4 @@
 <?php
-function countFiles($chemin)
-{
-    $directory = $chemin;
-    $images = glob($directory . "/*.jpg");
-    return $images;
-}
-
 $fichiers=countFiles('public/images/slideshow');
 $content='<div class="diaporama">';
 foreach($fichiers as $fichier){
@@ -51,9 +44,10 @@ $content.= '</div>
 $fichiers=countFiles('public/images/logos');
 $content.='<div class="lazy logos_slideshow">';
 foreach($fichiers as $fichier){
-    $content.='<div class="item_logos"><img src='.$fichier.' alt="" data-lazy="img/lazyfonz1.png"></div>';
+    $content.='<div class="item_logos"><img src='.$fichier.' alt="" "></div>';
 }
 $content.= '</div>'  ;
+
 require 'template.php';
 
 ?>

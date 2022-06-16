@@ -82,10 +82,5 @@ class ManageUsers extends Manage {
          return $order;
     }
      
-    public function getInfosDesOrdersDeUnUSER(int $id){
-        $data = ['number_user' => $id];
-        $query = "SELECT product.name,users.username,orders.id,payment_orders.amount,payment_orders.provider,payment_orders.status,orders.created_at,orders.sending_date FROM product JOIN orders_items,orders,users,payment_orders WHERE (orders_items.product_id = product.id AND orders.id = orders_items.order_id AND users.id = :number_user AND orders.user_id = :number_user AND orders.payment_id=payment_orders.id) ORDER BY orders.id DESC";
-        return  $this->getQuery($query,$data) ;
-    }
    
 }
