@@ -40,6 +40,19 @@ $(document).ready(function($) {
         nterMode: true,
         cusOnSelect: true
      }); 
+     
+     
+$('.lazy').slick({
+  lazyLoad: 'ondemand',
+  slidesToShow: 5,
+  slidesToScroll: 1,
+  infinite: true,
+   autoplay:true,
+   autoplaySpeed: 500,
+   
+});
+     
+     
 });    
 
 

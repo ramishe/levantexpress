@@ -46,7 +46,7 @@ class ManageUsers extends Manage {
            $this->getQuery($query2, $data2) ;
     } 
     
-    public function enregisterPaymentDeUnOrder($id_order,$amount,$provider){
+    public function enregisterPaymentDeUnOrder(int $id_order,$amount,string $provider) {
         $data3 = ['order_id' => $id_order,
                       'amount' => $amount,
                       'provider' => $provider];
@@ -55,11 +55,37 @@ class ManageUsers extends Manage {
           return $this->setQuery($query3,$data3) ;
     }
     
-    public function metrreIdPaymentDansOrder($id_payment,$id_order){
+    public function metrreIdPaymentDansOrder(int $id_payment,int $id_order) :void{
          $date5 = ['payment_id' => $id_payment,
                    'id_order' => $id_order];
             $query5 = "UPDATE orders SET payment_id=:payment_id WHERE id=:id_order";
             $this->getQuery($query5,$date5) ;
+    }
+    
+     public function getNumeroDeOrder(int $id){
+         $data = ['number_user' => $id];
+         $query = "SELECT orders.id, orders.payment_id, orders.created_at, payment_orders.amount FROM orders JOIN payment_orders ON orders.payment_id = payment_orders.id WHERE user_id=:number_user ";
+         return $this->getQuery($query,$data);
+     }
+     
+     public function getProductsDeOrders(int $id) {
+         $data = ['number_order' => $id];
+         $query = "SELECT orders_items.quantity, product.name, product.category_id, product.photo_name, product.price FROM orders_items JOIN product ON orders_items.product_id = product.id WHERE order_id=:number_order";
+         return $this->getQuery($query,$data);
+     }
+    
+    public function getOrderDetail(int $id):array { 
+         $data = ['order_id' => $id];
+         $query = "SELECT orders.id, orders.payment_id, orders.created_at, payment_orders.amount FROM orders JOIN payment_orders ON orders.payment_id = payment_orders.id WHERE orders.id=:order_id ";
+         $order = $this->getQuery($query,$data)->fetch(PDO::FETCH_ASSOC);
+         $order['productlist'] = $this->getProductsDeOrders($id)->fetchAll(PDO::FETCH_ASSOC);
+         return $order;
+    }
+     
+    public function getInfosDesOrdersDeUnUSER(int $id){
+        $data = ['number_user' => $id];
+        $query = "SELECT product.name,users.username,orders.id,payment_orders.amount,payment_orders.provider,payment_orders.status,orders.created_at,orders.sending_date FROM product JOIN orders_items,orders,users,payment_orders WHERE (orders_items.product_id = product.id AND orders.id = orders_items.order_id AND users.id = :number_user AND orders.user_id = :number_user AND orders.payment_id=payment_orders.id) ORDER BY orders.id DESC";
+        return  $this->getQuery($query,$data) ;
     }
    
 }
