@@ -1,24 +1,4 @@
-.div_btn_panier{
-    width:100%;
-    
-}
 
-
-.btn_payer{
-    border:none;
-    padding:10px;
-    display:block;
-    margin:0 auto;
-    background-color:#662d91;
-    color:white;
-    font-size:16px;
-    padding:10px;
-    margin:10px;
-    border-radius:10px;
-    text-align:center;
-    width:50%;
-    float:right;
-}
 body{
  box-sizing:border-box;
  margin:0;
@@ -555,30 +535,69 @@ footer{
 
 #shopping-cart table {
 	width: 100%;
-	background-color: #F0F0F0;
+	text-align:center;
+		background-color: #FFFFFF;
+		padding:5% 0;
+}
+#shopping-cart table tbody td{
+  
+}
+#shopping-cart table thead th {
+    background-color: #F0F0F0;
+
+}
+.tot_price_table_panier{
+    
 }
 
-#shopping-cart table td {
-	background-color: #FFFFFF;
-}
-
-.txt-heading {
-	color: #211a1a;
+.txt_heading {
+	color: #662D91;
 	border-bottom: 1px solid #E0E0E0;
 	overflow: auto;
+	font-size: 24px;
+    text-align: center;
+    font-weight:bold;
 }
 
 #btnEmpty {
-	background-color: #ffffff;
-	border: #d00000 1px solid;
-	padding: 5px 10px;
-	color: #d00000;
+	background-color: #662D91;
+	padding:10px;
+	color: white;
 	float: right;
 	text-decoration: none;
 	border-radius: 3px;
 	margin: 10px 0px;
 }
+.div_btn_panier{
+    width:100%;
+    
+}
+.div_total_price_panier{
+    width:100%;
+    display:flex;
+    justify-content:flex-end;
+    gap:20px
+}
+.div_total_price_panier p{
+    padding:10px;
+    background-color:#F4DEEB;
+    text-align:right;
+    padding-right:3%;
+}
+.btn_payer{
+    border:none;
+    padding:10px;
+    display:block;
+    margin:0 auto;
+    background-color:#662d91;
+    color:white;
+    font-size:20px;
+    padding:10px;
+    border-radius:10px;
+    text-align:center;
+    width:50%;
 
+}
 .btnAddAction {
     padding: 5px 10px;
     margin-left: 5px;
@@ -617,13 +636,14 @@ footer{
 	border: #CCC 1px solid;
 	padding: 2px 1px;
 }
-
+/*
 .tbl-cart {
 	font-size: 0.9em;
 }
 
-.tbl-cart th {
+.tbl-cart thead th {
 	font-weight: normal;
+	background-color:color; 
 }
 
 .product-title {
@@ -648,7 +668,7 @@ footer{
     padding: 15px 15px 0px 15px;
     overflow: auto;
 }
-
+*/
 .cart-item-image {
 	width: 30px;
     height: 30px;
@@ -1085,5 +1105,91 @@ footer{
 .text_description_product{
     background-color:red;
 }
+
+.wrapper{
+   
+    width: 80%;
+    
+}
+.wrapper form input{
+    width: 80%;
+    padding: 15px;
+    border-radius: 5px
+}
+
+#shopping-cart	table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+#shopping-cart	thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+#shopping-cart	tr { border: 1px solid #ccc; }
+	
+#shopping-cart	td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+	}
+	
+#shopping-cart	td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+.tbl_cart{
+        margin: 15% 0;
+        
+}
+
+
+.tbl_cart tr{
+        margin-bottom:3%;
+}
+.tbl_cart tr td{
+        text-align:center;
+        
+}
+
+.container_checkout{
+    flex-direction: column;
+}
+.infos_personnelles_checkout{
+    width:100%;
+}
+.infos_personnelles_checkout form{
+    width:100%;
+}
+.infos_personnelles_checkout form fieldset{
+    width:80%;
+    margin:0 auto;
+}
+.final_panier_pour_payment{
+    width:80%;
+    margin:0 auto;
+}
+	/*
+	Label the data
+	*/
+#shopping-cart td:nth-of-type(1):before { content: "Nom de prduit"; }
+#shopping-cart td:nth-of-type(2):before { content: "Promotion"; }
+#shopping-cart td:nth-of-type(3):before { content: "Quantité"; }
+#shopping-cart td:nth-of-type(4):before { content: "Prix unitaire"; }
+#shopping-cart td:nth-of-type(5):before { content: "Prix"; }
+#shopping-cart td:nth-of-type(6):before { content: "Supprimer"; }
+
+
+
 
 }

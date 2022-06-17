@@ -120,3 +120,34 @@
     border-radius: 10px;
     cursor: pointer;
 }
+
+/*********************************setting for telephone*/
+@media(max-width:480px){
+ .container_user_page{
+    flex-direction:column;
+}   
+
+.list_operations_users{
+    margin:0 auto;
+    width:80%;
+}
+
+
+.list_operations_users ul{
+    padding:0;
+}
+
+.affichage_operations_user{
+    width:100%;
+   
+}    
+
+.affichage_operations_user form fieldset{
+    width:80%;
+    margin:0 auto;
+}
+    
+
+    
+    
+}

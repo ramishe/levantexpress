@@ -64,7 +64,7 @@ class ManageUsers extends Manage {
     
      public function getNumeroDeOrder(int $id){
          $data = ['number_user' => $id];
-         $query = "SELECT orders.id, orders.payment_id, orders.created_at, payment_orders.amount FROM orders JOIN payment_orders ON orders.payment_id = payment_orders.id WHERE user_id=:number_user ";
+         $query = "SELECT orders.id, orders.payment_id, orders.created_at, payment_orders.amount FROM orders JOIN payment_orders ON orders.payment_id = payment_orders.id WHERE user_id=:number_user ORDER BY orders.id DESC ";
          return $this->getQuery($query,$data);
      }
      
