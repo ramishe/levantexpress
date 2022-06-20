@@ -95,6 +95,7 @@ ob_start();
                    break;
           case'ajouterphotosproduit':
                    ?>
+             <div class="container_photo_product">
               <form id="form_new_photos" enctype="multipart/form-data"  action="index.php?page=welcome_admin" method="POST">
                 <select name="section_id" id="sections" required>
                              <option value="">--Veuillez choisir une option--</option>
@@ -130,14 +131,13 @@ ob_start();
                  </filedset>
                  <input type="submit" name="submit" id="submit_photo"  value="Ajoutez les photos" class="btn_ajoute">
              </form>
+           </div>
               <?php
               break;
 }};
    $form_infos=ob_get_clean();
     $affiche = $form_infos;
    echo $affiche;
-   var_dump($_POST);
-   var_dump($_FILES);
    ?>
   </div>
 </div>

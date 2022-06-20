@@ -40,7 +40,7 @@ class ManageAdmin extends Manage {
                      mkdir($folder,0755);
                  }
                 foreach($files as $f){
-                    if($f['type'] == 'image/jpeg') {
+                    if($f['type'] == 'image/jpeg' || $f['type'] =='image/png') {
                         move_uploaded_file($f['tmp_name'], $folder.$f['name']);
                         $data = ['photo_name' => $f['name'],
                                 'id'=>$id];

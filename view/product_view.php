@@ -34,10 +34,13 @@ ob_start();
     </div>
     
      <div class="infos_product">
-           <h1><?=$r['name']?></h1>
+           <div class="name_wishlist_produit">
+               <h1><?=$r['name']?></h1> 
+               <a href="" id="wl_<?=$r['id']?>" class="products_wishlist"><i class="fa-solid fa-heart fa-2x btn_wishlist"></i></a>
+           </div>
            <p><?=$r['small_desc']?></p>
            <h4><?=$promotion?></h4>
-           <a href="" id="wl_<?=$r['id']?>" class="products_wishlist"><i class="fa-solid fa-heart fa-2x btn_wishlist"></i></a>
+           
            <h3>Prix: <?=$r['price']?>€ <?=$price_promotion?></h3>
         <div class="">
             <h3>Description:</h3>

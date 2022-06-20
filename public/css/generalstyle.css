@@ -433,11 +433,13 @@ input:required {
     font-weight:bold;
     text-align:center;
 }
-
+.name_wishlist_produit{
+    position:relative;
+}
 .products_wishlist{
     position: absolute;
     top: 10px;
-    right: 10px;
+    right: 10%;
 }
 .btn_wishlist{
     color:#E70A8D;
@@ -743,7 +745,7 @@ footer{
 
 }
 .infos_product{
-     width:600%;
+     width:60%;
      padding:20px;
      color:#662D91;
      
@@ -1373,7 +1375,9 @@ footer{
 .diapo_principal_product_item img{
     width:100%;
 }
-
+.products_wishlist{
+    top: 45px;
+}
 .diaporama_product{
     width:100%;
 }

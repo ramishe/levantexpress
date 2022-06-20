@@ -37,7 +37,6 @@ if(isset($_POST['submit'])) {
         case 'Ajoutez les photos' :
             var_dump($_POST);
             $id = intval($_POST['product_id']);
-            
             $category_id = intval($_POST['category_id']);
             $admin->addNewPhotos($id,$category_id,$_FILES);
             break;
