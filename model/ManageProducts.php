@@ -38,6 +38,14 @@ class ManageProducts extends Manage {
        return $this->getQuery($query,$data);
      }
      
+      public function setPhotosOfProduct(int $id,string $name,string $legend){
+       $data = ['id'=>$id,
+                 'name'=>$name,
+                  'legend'=>$legend];
+       $query = "INSERT INTO photo SET product_id = :id, name = :name, legend = :legend";
+       $this->getQuery($query,$data);
+     }
+     
      
    
 }

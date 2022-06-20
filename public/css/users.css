@@ -10,7 +10,7 @@
     
 }
 .list_operations_users{
-    width:20%;
+    width:30%;
 }
 .list_operations_users ul {
      list-style: none;
@@ -34,8 +34,15 @@
 }
 
 .affichage_operations_user{
-    width:80%;
+    width:70%;
+    padding:20px;
    
+}
+.commandes_user{
+    width:100%;
+}
+.tbl_cart_user{
+    width:100%;
 }
 .affichage_operations_user form{
     width:100%;
@@ -121,8 +128,81 @@
     cursor: pointer;
 }
 
+/*********************************setting for tablette*/
+@media(max-width:980px){
+.list_operations_users{
+    width:100%;  
+}
+.container_user_page{
+    flex-direction:column;
+}
+
+.list_operations_users{
+    width:80%;
+    margin:0 auto;
+}
+.affichage_operations_user{
+    margin:0 auto;
+}
+.commandes_user{
+    width:100%;
+    margin:0 auto;
+}
+	/* Hide table headers (but not display: none;, for accessibility) */
+.commandes_user	thead tr { 
+	position: absolute;
+	top: -9999px;
+	left: -9999px;
+}
+	
+.commandes_user	tr { border: 1px solid #ccc; }
+	
+.commandes_user	td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+	}
+	
+.commandes_user	td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+.commandes_user .tbl_cart_user{
+        margin: 15% 0;
+        
+}
+
+.commandes_user .tbl_cart_user tr{
+        margin-bottom:3%;
+}
+.commandes_user .tbl_cart_user tr td{
+        text-align:center;
+        
+        
+}
+
+
+	/*
+	Label the data
+	*/
+
+.commandes_user	 td:nth-of-type(1):before { content: "Nom de prduit"; }
+.commandes_user	 td:nth-of-type(2):before { content: "Qauntité"; }
+.commandes_user	 td:nth-of-type(3):before { content: "Prix"; }
+.commandes_user	 td:nth-of-type(4):before { content: "Prix Total"; }
+
+
+}
 /*********************************setting for telephone*/
-@media(max-width:480px){
+@media(max-width:520px){
  .container_user_page{
     flex-direction:column;
 }   

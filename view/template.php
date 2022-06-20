@@ -21,8 +21,12 @@ if(!isset($_SESSION["username"])) $_SESSION["username"]='';
      <meta name="viewport" content="width=device-width,initial-scale=1">
      <title>Levant-Express</title>
      <link rel="stylesheet" href="./public/css/generalstyle.css" type="text/css"/>
+     <link rel="shortcut icon" href="./public/images/logo-levant-expres.png" type="public/image/png" />
      <link rel="stylesheet" href="./public/css/users.css" type="text/css"/>
-   
+     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@300;400&display=swap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@500&display=swap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Krub:wght@300&display=swap" rel="stylesheet">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
      <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
      <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>

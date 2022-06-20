@@ -26,19 +26,21 @@ $(document).ready(function($) {
       });
  
      $('.diaporama_product').slick({
-         slidesToShow: 1,
+         slidesToShow: 3,
          slidesToScroll: 1,
          arrows: true,
          fade: true,
-          autoplay:true,
+          autoplay:false,
           autoplaySpeed: 1000,
          asNavFor: '.diapo_principal_photo_product'
      });
         $('.diapo_principal_photo_product').slick({
-        idesToShow: 2,
+        idesToShow: 1,
         idesToScroll: 1,
         NavFor: '.diaporama_product',
         ts: true,
+          autoplay:false,
+          autoplaySpeed: 1000,
         nterMode: true,
         cusOnSelect: true
      }); 
@@ -225,7 +227,6 @@ if(form_for_payer){
 //gérer fomulaire search
 let bar_recherch = document.getElementById('bar_recherch');
 bar_recherch.addEventListener("input", function(){
-        
    let wordsearch = document.getElementById('bar_recherch').value;     
    console.log(wordsearch);
 let formData = new FormData();
@@ -249,42 +250,3 @@ formData.append('wordsearch',wordsearch);
 });
 
 
-/*
-
-//form identification et inscription       
-let btn_create_account=document.getElementById('create_account');
-let form_signin=document.getElementById('form_signin');
-let form_signup=document.getElementById('form_signup');
-let btn_register_compte=document.getElementById('btn_register_compte');
- form_signin.classList.remove('hidden');
-
-   btn_create_account.addEventListener("click", function(e){
-   e.preventDefault();
-   form_signin.classList.add('hidden');
-   form_signup.classList.remove('hidden');
-   }); 
-   
-//gerer popup d'inscription
-let btn_close=document.getElementById('btnClose');
-let btn_open_popup=document.getElementById('btn_open_popup');
-let overlay=document.getElementById('overlay');
-let user_name=document.getElementById('user_name');
-console.log(user_name.textContent);
-
-btn_open_popup.addEventListener('click',function(e){
-     e.preventDefault();
-    if(!user_name.textContent){
-    overlay.classList.remove('hidden');
-    };
-btn_close.addEventListener('click',function(){
-    overlay.classList.add('hidden');
-
-});
-});   
-   if(user_name.textContent){
-       
-  }else 
-  {
-        Message("Veuillez inscriez-vous");
-  }
-*/   

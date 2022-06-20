@@ -43,7 +43,7 @@ ob_start();
             <h3>Description:</h3>
             <p><?=$r['description']?></p>
        </div>
-        <a href="" id="<?=$r['id']?>" class="btn_add_produit">Ajouter au panier</a>
+        <a href="" id="<?=$r['id']?>" class="btn_add_produit options_btn_add_produit">Ajouter au panier</a>
     </div>
 
 </div>

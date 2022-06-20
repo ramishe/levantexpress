@@ -33,40 +33,23 @@ class ManageAdmin extends Manage {
          }
      }
     
-     
-    
+      public function addNewPhotos($id,$category_id,$files):void {
+             if(!empty($files)) {
+                $folder = './public/images/categories/'.intval($category_id).'/';
+                 if(!file_exists($folder)) {
+                     mkdir($folder,0755);
+                 }
+                foreach($files as $f){
+                    if($f['type'] == 'image/jpeg') {
+                        move_uploaded_file($f['tmp_name'], $folder.$f['name']);
+                        $data = ['photo_name' => $f['name'],
+                                'id'=>$id];
+             $query = "INSERT INTO photo SET name =:photo_name,legend =:photo_name,product_id=:id";  
+             $this->getQuery($query, $data) ;
+                
+            };};
+             };
+      }
    
-}
+};
 
-/*
-public function crypterPassword($plaintext_password){
-         $hash = password_hash($plaintext_password, 
-          PASSWORD_DEFAULT);
-          return $hash;
-     }
-     public function decrypterPassword($plaintext_password,$hash){
-          $verify = password_verify($plaintext_password, $hash);
-          if ($verify) {
-              return $verify;
-          }
-          else {
-              echo 'Incorrect Password!';
-         }
-     }
-    
-    public function getAdmins(){
-     return $this->getQuery("SELECT * FROM admins");    
-    }
-    public function verifierCompteAdmin($username,$psd):object{
-        
-    
-        return $this->getQuery("SELECT username,psd FROM users WHERE username='".$username."' AND psd='".$psd."'");
-     }
-
-    public function createCompteAdmin($first_name,$last_name,$birth_date,$email,$psd):object {
-           $password_crypted=$this->crypterPassword($psd);
-         return $this->getQuery("INSERT INTO admins SET psd='$password_crypted',first_name='$first_name',last_name='$last_name',birth_date='$birth_date',mail='$email'") ;
-    }
-    
-
-*/

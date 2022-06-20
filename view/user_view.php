@@ -28,9 +28,9 @@ if(isset($_GET['action'])) {
             if(count($ord)) {
                 foreach($ord as $order) {
                     ?>
-                    <div id="shopping-cart">
-                        <div class="txt-heading">Numéro de commande: <?=$order['id']?></div>
-                        <div class="order_info">
+                    <div class="commandes_user">
+                        <div class="txt_heading_commandes">Numéro de commande: <?=$order['id']?></div>
+                        <div class="order_info_commandes">
                             Total : <?=$order['amount']?><br>
                             Date de la commande : <?=$order['created_at']?><br>
                             <a href="index.php?page=welcome&action=mescommandes_view&order=<?=$order['id']?>">Voir le détail de la commande</a>
@@ -43,33 +43,35 @@ if(isset($_GET['action'])) {
         
         case'mescommandes_view':
             ?>
-            <div id="shopping-cart">
+            <div class="commandes_user">
           
-            <div class="txt-heading">Numéro de commande:<?=$orders_detail['id']?></div>
-            date de commande : <?=$orders_detail['created_at']?>
-            <table class="tbl-cart" cellpadding="10" cellspacing="1">
-                <tbody>
+            <div class="txt_heading_commandes">
+                <p>Numéro de commande : <?=$orders_detail['id']?></p>
+                <p>date de commande : <?=$orders_detail['created_at']?></p>
+            </div>
+            <table class="tbl_cart_user" cellpadding="10" cellspacing="1">
+                <thead>
                     <tr>
                        <th style="text-align:left;">Nome de produit</th>
                        <th style="text-align:left;">Quantité</th>
                        <th style="text-align:left;">Prix</th>
-                       <th style="text-align:right;" width="5%">Total prix:</th>
+                       <th style="text-align:right;" >Total prix:</th>
                     </tr>
+                </thead>
                 <?php foreach($orders_detail['productlist'] as $item) { ?>
-                    <tr>
-                       <td><img src="./public/images/categories/<?=$item['category_id']?>/<?=$item['photo_name']?>" class="cart-item-image"><?=$item["name"]?></td>
-                       <td  style="text-align:right;"><?=$item["quantity"]?></td>
-                       <td  style="text-align:right;"><?=$item["price"]?> €</td>
-                       <td  style="text-align:right;"><?=number_format(($item["price"]*$item["quantity"]),2)?> €</td>
-                     </tr>
-                 <?php } ?>
-                 
-                 <tr>
-                   <td colspan="2" align="right">Total:</td>
-                   <td align="right" colspan="3"><strong><?=number_format($orders_detail['amount'], 2)?> €</strong></td>
-                 </tr>
-                </tbody>
+                    <tbody>
+                      <tr>
+                       <td style="text-align:left;"><img src="./public/images/categories/<?=$item['category_id']?>/<?=$item['photo_name']?>" class="cart-item-image"><?=$item["name"]?></td>
+                       <td  style="text-align:left;"><?=$item["quantity"]?></td>
+                       <td  style="text-align:left;"><?=$item["price"]?> €</td>
+                       <td  style="text-align:left;"><?=number_format(($item["price"]*$item["quantity"]),2)?> €</td>
+                      </tr>
+                     </tbody>
             </table>
+                 <?php } ?>
+                   <p>Total: <strong><?=number_format($orders_detail['amount'], 2)?> €</strong>
+                   </p>
+               
            
                                  
          </div>
