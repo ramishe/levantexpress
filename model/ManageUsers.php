@@ -3,19 +3,43 @@
 require_once'Manage.php';
 class ManageUsers extends Manage {
     
-     public function getShippingAddress($id):object{
+     public function getShippingAddress($id):object {
          $data = [
               'id'=>$id];
          $query = "SELECT shipping_address FROM users WHERE id=:id";
         return $this->getQuery($query, $data) ;
      }
-     public function getInfosOfUser($id):object{
+     public function getInfosOfUser($id):object {
          $data = [
               'id'=>$id];
           $query = "SELECT username,first_name,last_name,birth_date,mail,telephone,shipping_address ,home_address,country,city,code_postal FROM users WHERE id=:id";
         return $this->getQuery($query, $data) ;
      }
      
+    public function getWishlist(int $user_id):array {
+        $data = [ 'user_id' => $user_id ];
+        $query = "SELECT product_id FROM wishlist WHERE user_id=:user_id GROUP BY product_id";
+        return $this->getQuery($query, $data)->fetchAll();
+    }
+    
+    public function addWishlist(int $prod_id, int $user_id):void {
+        $data = [ 'user_id' => $user_id, 'prod_id' => $prod_id ];
+        $query = "INSERT INTO wishlist SET user_id=:user_id, product_id=:prod_id";
+        $this->getQuery($query, $data);
+    }
+    
+    public function removeWishlist(int $prod_id, int $user_id):void {
+        $data = [ 'user_id' => $user_id, 'prod_id' => $prod_id ];
+        $query = "DELETE FROM wishlist WHERE user_id=:user_id AND product_id=:prod_id";
+        $this->getQuery($query, $data);
+        foreach($_SESSION['wishlist'] as $k => $v) {
+            if($v==$prod_id) {
+                unset($_SESSION['wishlist'][$k]);
+            }
+        }
+    }
+    
+    
       public function updateInfoDeCompte($id,$first_name,$last_name,$birth_date,$email,$telephone,$shipping_address,$home_address,$country,$city,$code_postal):void {
           $data = [
               'id'=>intval($id),

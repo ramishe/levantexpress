@@ -69,7 +69,18 @@ if(!isset($_SESSION["username"])) $_SESSION["username"]='';
           </div>
        </div>  
        <div class="wishlist">
+           <div id="list_wishlist" class="list_panier hidden">
+                <span id="btn_close_popup_wishlist" class="btnClose"> &times;</span>
+                <div id="wishlist_content"></div>
+           </div>
           <a href="index.php?page=wishlist"><i class="fa-brands fa-gratipay fa-2xl"></i></a>
+          <div class="number_articles_in_basket" id="number_articles_in_wishlist"> 
+            
+                 <?=$_SESSION['number_articles'] ?>
+            
+            
+          
+          </div>
        </div>
        <div class="sign_in">
           <a href="index.php?page=login" id="btn_open_popup"><i class="fa-solid fa-circle-user fa-2xl"></i></a>
@@ -103,6 +114,7 @@ if(!isset($_SESSION["username"])) $_SESSION["username"]='';
         <div id="cart_content">
        </div>
     </div>
+     
   </header>
   <main>
       <?=$content; ?>
@@ -147,7 +159,9 @@ if(!isset($_SESSION["username"])) $_SESSION["username"]='';
             <a href=""> <i class="fa-brands fa-cc-mastercard fa-2X"></i> </a>
         </div>
      </div>
+     
   </footer>
+  <div class="footer_copyright"><span >Levantexpress eCommerce.&nbsp;©&nbsp;&nbsp;2022.&nbsp;&nbsp;All Rights Reserved.</span></div>
   <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
   <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
   <script type="text/javascript" src="slick/slick.min.js"></script>

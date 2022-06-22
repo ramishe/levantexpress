@@ -60,7 +60,7 @@ switch($page){
         break;
         
     case 'wishlist' :
-        require './ajax/ajax_wish_list.php';
+        require './controller/wishlist.php';
         break;
         
     case 'users' :

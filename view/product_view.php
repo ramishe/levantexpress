@@ -17,7 +17,7 @@ ob_start();
             $photos_product = $photos_product->fetchAll();
             
             foreach($photos_product as $d) {
-                echo ' <div class="diapo_principal_product_item"><img src="./public/images/categories/'.$r['category_id'].'/'.$d['name'].'"></div>';
+                echo ' <div class="diapo_principal_product_item"><img class="image_for_zoom"  src="./public/images/categories/'.$r['category_id'].'/'.$d['name'].'"></div>';
             }
             ?>
         </div>
@@ -34,6 +34,9 @@ ob_start();
     </div>
     
      <div class="infos_product">
+         <div class="zoom_image_product hidden" id="zoom_image_product">
+             
+         </div>
            <div class="name_wishlist_produit">
                <h1><?=$r['name']?></h1> 
                <a href="" id="wl_<?=$r['id']?>" class="products_wishlist"><i class="fa-solid fa-heart fa-2x btn_wishlist"></i></a>

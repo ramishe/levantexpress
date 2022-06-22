@@ -205,7 +205,7 @@ nav a {
     color:#f4deeb;
     transform: scale(1.1,1.1);
     color:white;
-    padding:10px;
+    padding:15px;
     box-shadow:10px;
 }
 
@@ -221,10 +221,9 @@ nav a {
 .rayon,.category{
     width:30%;
     margin:1%;
-    
-    
-  
+
 }
+
 .photo_rayon,.photo_category{
     width:100%;
     
@@ -440,11 +439,12 @@ input:required {
     position: absolute;
     top: 10px;
     right: 10%;
+    color:#aaa;
 }
-.btn_wishlist{
+.active {
     color:#E70A8D;
-    
 }
+
 .price_products_dans_un_category{
 
     width: 100%;
@@ -483,6 +483,7 @@ footer{
     background-color:#F4DEEB;
     color:#662d91 ;
     width:100%;
+    padding: 10px 0;
 }
 .livraison,.liens_utiles,.aplli,.social_payment_method{
     width:25%;
@@ -530,9 +531,6 @@ footer{
 .info_panier{
     padding-top:20px;
     width:70%;
-}
-.cart_items_boutons{
-  
 }
 
 .number_articles_in_basket{
@@ -655,39 +653,7 @@ footer{
 	border: #CCC 1px solid;
 	padding: 2px 1px;
 }
-/*
-.tbl-cart {
-	font-size: 0.9em;
-}
 
-.tbl-cart thead th {
-	font-weight: normal;
-	background-color:color; 
-}
-
-.product-title {
-	margin-bottom: 20px;
-}
-
-.product-price {
-	float:left;
-}
-
-.cart-action {
-	float: right;
-}
-
-.product-quantity {
-    padding: 5px 10px;
-    border-radius: 3px;
-    border: #E0E0E0 1px solid;
-}
-
-.product-tile-footer {
-    padding: 15px 15px 0px 15px;
-    overflow: auto;
-}
-*/
 .cart-item-image {
 	width: 30px;
     height: 30px;
@@ -756,30 +722,43 @@ footer{
     display: inline-block;
 }
 
-.diapo_principal_product_item{
-    width:100%;
-}
-.diapo_principal_product_item img{
-    width:100%;
- 
-}
+
 .diaporama_product{
     width:100%;
     
-  
 }
-.diaporama_product_item{
-    width:100%;
-      box-sizing:border-box;
-      
+.diapo_principal_product_item {
+     width:100%;
+     height:320px;
 }
-.diaporama_product_item img{
-    width:100%;
-  object-fit:cover;
-   box-sizing:border-box;
+
+
+.diaporama_product_item {
+     width: 100%;
+     height: 100px;
 }
-.text_description_product{
-    background-color:red;
+
+.diaporama_product_item img {
+     width: 100%;
+     height: 100%;
+     object-fit: contain;
+}
+
+
+.zoom_image_product {
+    position:absolute;
+    border:1px solid red;
+    width: 320px;
+    height: 320px;
+    overflow: hidden;
+    z-index:2;
+    background-color: #fff;
+}
+
+.image_for_zoom {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 .container_general_info{
     width:90%;
@@ -793,8 +772,8 @@ footer{
     
 }
 .general_info1{
-   width:30%; 
-   display:flex;
+    width:30%; 
+    display:flex;
     justify-content:space-between;
     box-sizing:border-box;
     border:1px solid black;
@@ -897,10 +876,63 @@ footer{
    margin:0 auto;
     object-fit: cover;
 }
+.footer_copyright{
+    background-color:#E70A8D;
+    color:white;
+    text-align:center;
+    padding:10px;
+}
+.container_about_page{
+    width: 100%;
+}
+.container_about_page img{
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+.map_google_box{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px auto;
+}
+
+.text_map{
+    width:48%;
+    color:#662D91;
+    font-size:20px;
+    
+}
+.google_map{
+    width:48%;
+}
+
+.container_wishlist{
+    height:100px;
+    width:100%;
+    background-color:red;
+    position:relative;
+}
+
 /******************************************setting de telephone*/
 
 
 @media(max-width:980px){
+    
+.map_google_box{
+    flex-direction:column;
+    
+}
+
+.text_map{
+    width:100%;
+        
+}
+.google_map{
+    width:100%;
+
+    
+}    
 .top_bar{
     justify-content:center;
 }
@@ -1051,11 +1083,10 @@ footer{
      width:100%;
 }
 
-.diapo_principal_product_item{
-    width:100%;
-}
-.diapo_principal_product_item img{
-    width:100%;
+
+
+.diapo_principal_photo_product {
+   height:320px;
 }
 
 .diaporama_product{
@@ -1176,8 +1207,14 @@ footer{
 #shopping-cart td:nth-of-type(5):before { content: "Prix"; }
 #shopping-cart td:nth-of-type(6):before { content: "Supprimer"; }
 
+.container_about_page img{
+    height: 300px;
+}
 
 }
+
+
+
 
 @media(max-width:520px){
     
@@ -1369,12 +1406,7 @@ footer{
      width:100%;
 }
 
-.diapo_principal_product_item{
-    width:100%;
-}
-.diapo_principal_product_item img{
-    width:100%;
-}
+
 .products_wishlist{
     top: 45px;
 }
@@ -1407,6 +1439,9 @@ footer{
     border-radius: 5px
 }
 
+.container_about_page img{
+    height: 200px;
+}
 
 
 

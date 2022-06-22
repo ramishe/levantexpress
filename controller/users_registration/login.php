@@ -2,7 +2,9 @@
 // Initialize the session
 //session_start();
 require 'model/ManageRayons.php';
+require 'model/ManageUsers.php';
 $rayon = new ManageRayons();
+$usr = new ManageUsers();
 $liste_rayon = $rayon->getRayonsNav();
 // Check if the user is already logged in, if yes then redirect him to welcome page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
@@ -66,7 +68,8 @@ if( isset( $_POST ) && !empty( $_POST ) ){
                             // Store data in session variables
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
-                            $_SESSION["username"] = $username;                            
+                            $_SESSION["username"] = $username;
+                            $_SESSION["wishlist"] = $usr->getWishlist($id);
                             
                             // Redirect user to previous page
                             if(isset($_GET['from'])) {
