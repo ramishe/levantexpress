@@ -11,6 +11,7 @@ ob_start();
 <?php
 $menu = ob_get_clean();
 if(!isset($_SESSION['number_articles'])) $_SESSION['number_articles']='';
+if(!isset($_SESSION['number_wishlist'])) $_SESSION['number_wishlistS']='';
 if(!isset($_SESSION["username"])) $_SESSION["username"]='';
 
 ?>
@@ -74,9 +75,9 @@ if(!isset($_SESSION["username"])) $_SESSION["username"]='';
                 <div id="wishlist_content"></div>
            </div>
           <a href="index.php?page=wishlist"><i class="fa-brands fa-gratipay fa-2xl"></i></a>
-          <div class="number_articles_in_basket" id="number_articles_in_wishlist"> 
+          <div class="number_articles_in_wishlist" id="number_articles_in_wishlist"> 
             
-                 <?=$_SESSION['number_articles'] ?>
+                 <?=$_SESSION['number_wishlist'] ?>
             
             
           

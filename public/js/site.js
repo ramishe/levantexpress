@@ -128,6 +128,7 @@ let list_wishlist = document.getElementById('list_wishlist');
 let btn_close_popup_wishlist = document.getElementById('btn_close_popup_wishlist');
 let number_articles_in_wishlist=document.getElementById('number_articles_in_wishlist');
 let wishlist_content=document.getElementById('wishlist_content');
+let dd = null;
 btn_close_popup_wishlist.addEventListener('click',function(){
     list_wishlist.classList.add('hidden');
 });
@@ -142,10 +143,13 @@ for(let i of products_wishlist){
         .then(response => response.text())
         .then(data => {
         wishlist_content.innerHTML = data;
+        let nb_cart_wishlist = document.getElementsByClassName('cart_item_wishlist').length;
+        number_articles_in_wishlist.innerHTML = nb_cart_wishlist;
         e.target.classList.toggle('active');
         })
         .catch(err => console.error(err));
         list_wishlist.classList.remove('hidden');
+
     });
 }
 

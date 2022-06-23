@@ -1,68 +1,49 @@
 <?php
-if(isset($_SESSION['cart'])){
-     $total_quantity = 0;
-    $total_price = 0;
-    $item_price = 0;
-    
-ob_start();
-?>
-<div id="shopping-cart">
-     <div class="txt_heading">Votre panier</div>
-        <a id="btnEmpty" href="index.php?page=panier&action=empty">Vider Panier</a>
-        <table class="tbl_cart" cellpadding="20" cellspacing="1">
-           <thead>
-             <tr>
-               <th>Nom de prduit</th>
-               <th>Promotion</th>
-               <th>Quantité</th>
-               <th>Prix unitaire</th>
-               <th>Prix</th>
-               <th>Supprimer</th>
-            </tr>
-        </thead>
-       <?php
-    foreach($_SESSION['cart'] as $prod_id => $quantity){
-       $info_product = $allproducts->addProductToPanier($prod_id);
-       $r = $info_product->fetch(PDO::FETCH_ASSOC);
-       if($r['discount']==0 || $r['discount']=='' ){
-        $item_price = $_SESSION['cart'][$r['id']]*$r["price"];
-       } else $item_price = $_SESSION['cart'][$r['id']] * $r["price"]*((100-intval($r['discount']))/100);
-       ?>
-        <tbody>
-          <tr>
-		    <td align="left"><img src="./public/images/categories/<?=$r['category_id']?>/<?=$r['photo_name']?>" class="cart-item-image"/><?=$r["name"]?></td>
-			<td><?=$r["discount"]?> %</td>
-			<td><?=$_SESSION['cart'][$r['id']]?></td>
-			<td><?=$r["price"]?> €</td>
-			<td><?= number_format($item_price,2) ?> €</td>
-			<td><a href="index.php?page=panier&action=remove&code=<?=$r['id']?>" class="btnRemoveAction"><i class="fa-solid fa-trash-can" fa-2xl></i></a></td>
-		</tr>
-	  <?php
-      $total_quantity += $_SESSION['cart'][$r['id']];
-   	  $total_price += $item_price;
+if(isset($products_wishlist) && $products_wishlist->rowCount()) {
+    $content='<div class="container_products">';
+    while($r=$products_wishlist->fetch(PDO::FETCH_ASSOC)){
         
-      }
-      $_SESSION['total_quantity']=$total_quantity;
-      $_SESSION['total_price']=number_format($total_price,2);
-      ?>
-    </tbody>
-  </table>
-  <div class="div_total_price_panier">
-         <p>Numbtre des articles: <?=$total_quantity?> </p>
-         <p><strong>Total prix: <?=number_format($total_price, 2)?> €</strong></p>
+        if($r['discount']==0){
+            $promotion = '';
+            $price_promotion = '';
+            $price_anyway = $r['price'];
+        }
+        else{
+            $price_anyway = $r['price']-($r['price']*$r['discount']/100);
+            $promotion='<p>'.$r['discount'].'%</p>';   
+            $price_promotion='<p class="price_promotion">'.$r['price']-($r['price']*$r['discount']/100) .' <span class="type_money">€</span></p>';
+        }
+            if(isset($_SESSION['wishlist']) && array_search($r['id'], $_SESSION['wishlist'])) {
+                $class = 'active';
+            } else {
+                $class = '';
+            }
+            $wishlist = '<a id="wl'.$r['id'].'" class="products_wishlist"><i class="fa-solid fa-heart fa-2x '.$class.'"></i></a>';
+            
+            $content.='<div class="products_de_un_category">
+                    
+                    <div class="products_photo_promotion">
+                             <div class="products_photo">
+                                <a href="index.php?page=product&name='.$r['name'].'&id='.$r['id'].'"     ><img src="./public/images/categories/'.$r['category_id'].'/'.$r['photo_name'].'"></a>
+                             </div>
+                             <div class="products_promotion">
+                                 '.$promotion.'
+                             </div>
+                             '.$wishlist.'
+                                  <h3>'.$r['name'].'</h3>
+                                 
+                         </div>
+                        <div class="price_products_dans_un_category">
+                            <p>'.$price_anyway.'€</p>
+                        </div>
+                            <a href="" id="'.$r['id'].'" class="btn_add_produit">Ajouter au panier</a>
+                     </div>
+                    
+                     ';
         
-       </div>
- <div class="div_btn_panier"><a href="index.php?page=checkout" class="btn_payer">Payer</a></div>
-   <?php     
-}  else {
-    ?>
-   <div class="no-records">Votre panier est vide</div>
-   <?php
+    }
+}else {
+    $content.="<p>vous n'avez pas des produits dans votre wishlist</p>";
 }
- ?>
-</div>
-<?php
-
-$content=ob_get_clean();
-
+$content.='</div>';
 require 'template.php';

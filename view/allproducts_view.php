@@ -18,7 +18,7 @@ while($r=$info_allproducts->fetch(PDO::FETCH_ASSOC)){
         } else {
             $class = '';
         }
-        $wishlist = '<a id="wl'.$r['id'].'" class="products_wishlist '.$class.'"><i class="fa-solid fa-heart fa-2x"></i></a>';
+        $wishlist = '<a id="wl'.$r['id'].'" class="products_wishlist"><i class="fa-solid fa-heart fa-2x '.$class.'"></i></a>';
         
         $content.='<div class="products_de_un_category">
                 

@@ -62,8 +62,7 @@ if( isset( $_POST ) && !empty( $_POST ) ){
                     mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password);
                     if(mysqli_stmt_fetch($stmt)){
                         if(password_verify($password, $hashed_password)){
-                            // Password is correct, so start a new session
-                            session_start();
+                       
                            
                             // Store data in session variables
                             $_SESSION["loggedin"] = true;
