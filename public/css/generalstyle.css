@@ -321,6 +321,19 @@ nav a {
     font-weight:700;
     text-transform: uppercase;
     color:#662D91;
+    animation-duration: 3s;
+    animation-delay:1S;
+    animation-name: slideout;
+}
+@keyframes slideout {
+    from {
+        margin-left:0;
+        top:0;
+    }
+    to {
+        margin-left:30px;
+        top:30%;
+    }
 }
 .item img{
     width:100%;
@@ -666,7 +679,7 @@ footer{
 .no-records {
 	text-align: center;
 	clear: both;
-	margin: 38px 0px;
+	margin: 120px 0px;
 }
 
 .normal_btn{
@@ -705,6 +718,7 @@ footer{
         width: 100%;
     display: flex;
     justify-content: space-around;
+    margin:1%;
 }
 .photos_product{
     width:40%;
@@ -728,20 +742,26 @@ footer{
     
 }
 .diapo_principal_product_item {
-     width:100%;
+     width:100% ;
      height:320px;
+     
+}
+.diapo_principal_product_item  img{
+    width:100%;
+     height: 100% !important ;
+     object-fit: contain;
 }
 
-
 .diaporama_product_item {
-     width: 100%;
-     height: 100px;
+     height:100px !important;
+     margin:10px;
 }
 
 .diaporama_product_item img {
-     width: 100%;
-     height: 100%;
-     object-fit: contain;
+     width: 100% !important;
+     height: 100% ;
+     object-fit: cover;
+     
 }
 
 
@@ -914,6 +934,45 @@ footer{
     position:relative;
 }
 
+/*****************css for banners****************************/
+.banners{
+    width:90%;
+    margin:0 auto;
+    display:flex;
+    justify-content:space-between;
+   
+}
+.banners img{
+    width:100%;
+}
+.banner1{
+    width:65%;
+    position:relative;
+    
+}
+.banner2{
+    width:32%;
+     position:relative;
+}
+.text_on_banner{
+    position: absolute;
+    top: 0 ;
+    right: 129px;
+    color:#662d91;
+    font-size:25px;
+    animation-duration: 2s;
+    animation-delay:2S;
+    animation-name: slidein;
+}
+@keyframes slidein {
+    from {
+        width:100%;
+    }
+    to {
+       width:30%;
+    }
+}
+
 /******************************************setting de telephone*/
 
 
@@ -968,7 +1027,7 @@ footer{
     height:300px;
 }
 
-.item .item_text {
+ .item_text {
     left: 25%;
     top: 100px;
     font-size:20px;
@@ -1211,6 +1270,23 @@ footer{
     height: 300px;
 }
 
+/*****************css for banners****************************/
+.banners{
+    width:90%;
+    margin:0 auto;
+    display:flex;
+    flex-direction:column;
+   
+}
+
+.banner1{
+    width:100%;
+    
+}
+.banner2{
+    width:100%;
+}
+
 }
 
 
@@ -1286,7 +1362,12 @@ footer{
      margin-bottom:25px;
 }
 
-.number_articles_in_basket,.number_articles_in_wishlist{
+.number_articles_in_basket{
+     right:auto;
+}
+
+.number_articles_in_wishlist{
+     margin-left:75%;
      right:auto;
 }
 
@@ -1443,6 +1524,9 @@ footer{
     height: 200px;
 }
 
-
+.text_on_banner{
+    font-size:15px;
+    right:40px
+}
 
 }

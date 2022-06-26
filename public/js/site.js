@@ -25,7 +25,7 @@ $(document).ready(function($) {
     });
   
     $('.diaporama_product').slick({
-        slidesToShow: 3,
+        slidesToShow: 5,
         slidesToScroll: 1,
         asNavFor: '.diapo_principal_photo_product',
         dots: false,
@@ -37,7 +37,7 @@ $(document).ready(function($) {
         slidesToShow: 1,
         slidesToScroll: 1,
         dots: false,
-        centerMode: true,
+        centerMode: false,
         focusOnSelect: true
     }); 
     
@@ -77,15 +77,15 @@ function zoomOut() {
 function coordonnees(e) {
     let img = document.querySelector('.diapo_principal_photo_product');
     let position = img.getBoundingClientRect();
-    let xx = position.left;
-    let yy = position.top;
+    let xx = position.left+100;
+    let yy = position.top+70;
     let x = e.clientX-xx;     
     let y = e.clientY-yy;
     let realWidth = e.target.naturalWidth;
     let realHeight = e.target.naturalHeight;
     let Width = e.target.offsetWidth;
     let Height = e.target.offsetHeight;
-    let propX = realWidth/Width;
+    let propX = (realWidth*2)/Width;
     let propY = realHeight/Height;
     console.log(Width, Height);
     zoom_image_product.innerHTML = '<img src="'+e.target.src+'" style="position:absolute; top:-'+y*propY+'px; left:-'+x*propX+'px;">';

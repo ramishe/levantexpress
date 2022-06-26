@@ -30,19 +30,3 @@ if(isset($_POST['prod_id'])){
    echo $content_cart; 
    }
 }
-/* for($i =1; $i <= count($_SESSION['cart']); ++$i){
-       $_SESSION['a']=intval($_SESSION['cart'][$i]);
-       $_SESSION['number']+=$_SESSION['a'];
-      }
-      if($_SESSION['number']==0){
-          $_SESSION['number_articles_in_basket']='';
-      } else  $_SESSION['number_articles_in_basket']=$_SESSION['number'];   
-    
-      if($_SESSION['cart'][$r['id']]==$r['id']) {
-            $_SESSION['number_articles']+=$_POST['number_articles'];
-           
-        } 
-        */
-      
-      
-      

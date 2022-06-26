@@ -1,5 +1,6 @@
 <?php
 if(isset($products_wishlist) && $products_wishlist->rowCount()) {
+ 
     $content='<div class="container_products">';
     while($r=$products_wishlist->fetch(PDO::FETCH_ASSOC)){
         
@@ -43,7 +44,7 @@ if(isset($products_wishlist) && $products_wishlist->rowCount()) {
         
     }
 }else {
-    $content.="<p>vous n'avez pas des produits dans votre wishlist</p>";
+    $content.='<p class="no-records">vous navez pas des produits dans votre wishlist</p>';
 }
 $content.='</div>';
 require 'template.php';

@@ -5,6 +5,7 @@ require_once '../model/ManageUsers.php';
 if(isset($_SESSION['id'])) {
     $req = new ManagePanier();
     $usr = new ManageUsers();
+    if(!isset($_SESSION['number_wishlist'])) $_SESSION['number_wishlist'] =0;
     if(!isset($_SESSION['wishlist'])) {
         $_SESSION['wishlist'] = array();
     }
@@ -19,7 +20,6 @@ if(isset($_SESSION['id'])) {
         }else {
             $_SESSION['wishlist'][] = $id;
             $usr->addWishlist($id, $_SESSION['id']);
-            var_dump($_SESSION['wishlist'],$_POST);
         }
         $info_wishlist = $usr->getWishlistOfUser(intval($_SESSION['id']));
         if($info_wishlist->rowCount()){

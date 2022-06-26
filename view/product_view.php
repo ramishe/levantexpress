@@ -9,6 +9,7 @@ if($r['discount'] == 0){
 }
                          
 ob_start();
+
 ?>
 <div class="container_product">
     <div class="photos_product">
@@ -39,7 +40,16 @@ ob_start();
          </div>
            <div class="name_wishlist_produit">
                <h1><?=$r['name']?></h1> 
-               <a href="" id="wl_<?=$r['id']?>" class="products_wishlist"><i class="fa-solid fa-heart fa-2x btn_wishlist"></i></a>
+               <?php
+                if(isset($_SESSION['wishlist']) && array_search($r['id'], $_SESSION['wishlist'])) {
+                    $class = 'active';
+                } else {
+                    $class = '';
+                }
+                $wishlist = '<a id="wl'.$r['id'].'" class="products_wishlist"><i class="fa-solid fa-heart fa-2x '.$class.'"></i></a>';
+               ?>
+               <?= $wishlist?>
+               
            </div>
            <p><?=$r['small_desc']?></p>
            <h4><?=$promotion?></h4>
