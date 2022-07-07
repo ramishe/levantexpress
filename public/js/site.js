@@ -90,7 +90,7 @@ function coordonnees(e) {
     console.log(Width, Height);
     zoom_image_product.innerHTML = '<img src="'+e.target.src+'" style="position:absolute; top:-'+y*propY+'px; left:-'+x*propX+'px;">';
 }
-   
+
 let btn_add_produit = document.getElementsByClassName('btn_add_produit');
 let list_panier = document.getElementById('list_panier');
 let btn_close_popup_panier = document.getElementById('btn_close_popup_panier');
@@ -128,13 +128,22 @@ let list_wishlist = document.getElementById('list_wishlist');
 let btn_close_popup_wishlist = document.getElementById('btn_close_popup_wishlist');
 let number_articles_in_wishlist=document.getElementById('number_articles_in_wishlist');
 let wishlist_content=document.getElementById('wishlist_content');
-let dd = null;
+ if (number_articles_in_wishlist.textContent > 0){
+            number_articles_in_wishlist.classList.remove('hidden')
+        }else {
+            number_articles_in_wishlist.classList.add('hidden')
+        }
 btn_close_popup_wishlist.addEventListener('click',function(){
     list_wishlist.classList.add('hidden');
 });
 for(let i of products_wishlist){
     i.addEventListener("click", function(e){
         e.preventDefault();
+        if (number_articles_in_wishlist.textContent >= 0){
+            number_articles_in_wishlist.classList.remove('hidden')
+        }else {
+            number_articles_in_wishlist.classList.add('hidden')
+        }
         let prod_id1 = i.id;
         let formData = new FormData();
         formData.append('prod_id1', prod_id1);

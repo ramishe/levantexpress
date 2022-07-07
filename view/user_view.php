@@ -27,6 +27,7 @@ if(isset($_GET['action'])) {
         case'mescommandes':
             if(count($ord)) {
                 foreach($ord as $order) {
+                 
                     ?>
                     <div class="commandes_user">
                         <div class="txt_heading_commandes">Numéro de commande: <?=$order['id']?></div>
@@ -53,22 +54,32 @@ if(isset($_GET['action'])) {
                 <thead>
                     <tr>
                        <th style="text-align:left;">Nome de produit</th>
-                       <th style="text-align:left;">Quantité</th>
-                       <th style="text-align:left;">Prix</th>
-                       <th style="text-align:right;" >Total prix:</th>
+                       <th style="text-align:center;">Quantité</th>
+                       <th style="text-align:center;">Prix</th>
+                       <th style="text-align:center;" >Total prix:</th>
                     </tr>
                 </thead>
-                <?php foreach($orders_detail['productlist'] as $item) { ?>
+                <?php foreach($orders_detail['productlist'] as $item) { 
+                          if($item['discount']==0 || $item['discount']=='' ){
+                                 $price_unitaire =  $item["price"];
+        
+                          } else{ 
+                                
+                                $price_unitaire = $item["price"]*((100-intval($item['discount']  ))/100);
+                          }
+                          $price_ancien = (($price_unitaire == $item["price"])? '' : ($item["price"]));               
+                ?>
                     <tbody>
                       <tr>
                        <td style="text-align:left;"><img src="./public/images/categories/<?=$item['category_id']?>/<?=$item['photo_name']?>" class="cart-item-image"><?=$item["name"]?></td>
-                       <td  style="text-align:left;"><?=$item["quantity"]?></td>
-                       <td  style="text-align:left;"><?=$item["price"]?> €</td>
-                       <td  style="text-align:left;"><?=number_format(($item["price"]*$item["quantity"]),2)?> €</td>
+                       <td  style="text-align:center;"><?=$item["quantity"]?></td>
+                       <td  style="text-align:center;"><strike><?= $price_ancien?> </strike> <?=$price_unitaire?> €</td>
+                       <td  style="text-align:center;"><?=number_format(($price_unitaire*$item["quantity"]),2)?> €</td>
                       </tr>
+                       <?php } ?>
                      </tbody>
             </table>
-                 <?php } ?>
+                
                    <p>Total: <strong><?=number_format($orders_detail['amount'], 2)?> €</strong>
                    </p>
                

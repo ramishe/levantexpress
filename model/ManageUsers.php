@@ -97,7 +97,7 @@ class ManageUsers extends Manage {
     
     public function getProductsDeOrders(int $id) {
         $data = ['number_order' => $id];
-        $query = "SELECT orders_items.quantity, product.name, product.category_id, product.photo_name, product.price FROM orders_items JOIN product ON orders_items.product_id = product.id WHERE order_id=:number_order";
+        $query = "SELECT orders_items.quantity,product.* FROM orders_items JOIN product ON orders_items.product_id = product.id WHERE order_id=:number_order";
         return $this->getQuery($query,$data);
     }
     

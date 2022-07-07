@@ -75,7 +75,7 @@ if(!isset($_SESSION["username"])) $_SESSION["username"]='';
                 <div id="wishlist_content"></div>
            </div>
           <a href="index.php?page=wishlist"><i class="fa-brands fa-gratipay fa-2xl"></i></a>
-         <div class="number_articles_in_wishlist" id="number_articles_in_wishlist">
+         <div class="number_articles_in_wishlist hidden" id="number_articles_in_wishlist">
             
          <?php
          if(isset($_SESSION['wishlist'])) {

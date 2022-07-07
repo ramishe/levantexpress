@@ -4,7 +4,7 @@ require './model/ManageRayons.php';
 $ray= new ManageRayons();
 $liste_rayon = $ray->getRayonsNav();
 require './model/ManageUsers.php';
-  $user= new ManageUsers();
+$user= new ManageUsers();
 
 if(isset($_POST['signin']) && $_POST['signin']=='identifier'){
    
