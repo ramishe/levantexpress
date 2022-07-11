@@ -1,5 +1,4 @@
 <?php
-
 require './model/ManageRayons.php';
 require './model/ManagePanier.php';
 require './model/ManageUsers.php';
@@ -11,5 +10,4 @@ if(empty($_SESSION["username"])){
    header("location: index.php?page=login&from=checkout");
    exit;
 }
-
 require './view/checkout_view.php';

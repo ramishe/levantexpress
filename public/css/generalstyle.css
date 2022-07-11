@@ -4,7 +4,15 @@
     src: url("../fonts/RedHatText-VariableFont_wght.ttf");
     
 }
-
+.color1{
+    background-color:#662d91;
+}
+.color2{
+    background-color:#f4deeb;
+}
+.color3{
+    background-color:#e70a8d
+}
 body{
 font-family: 'Red Hat Text', sans-serif;
  box-sizing:border-box;
@@ -473,7 +481,7 @@ input:required {
    border:1px solid #E70A8D; 
     margin:0 10px;
 }
-.btn_add_produit{
+.btn_add_produit,.button_normal{
     border:none;
     padding:10px;
     margin:0 auto;
@@ -933,7 +941,33 @@ footer{
     background-color:red;
     position:relative;
 }
+/***********************page contact*******************/
+.contactnewsl{
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 3% 0;
+}
+.contactnewsl form{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+}
+.contactnewsl input ,textarea{
+    width:80%;
+    padding:1%;
+    border:1px solid #662D91;
+    border-radius:10px;
+    margin:1% auto;
+    
+}
+.block{
+    display:block;
+    margin:1% auto;
+    width: 30%;
 
+}
 /*****************css for banners****************************/
 .banners{
     width:90%;
