@@ -59,6 +59,10 @@ switch($page){
     require './controller/admin/logout.php';
     break;
     
+    case 'reset_psd_admin' :
+    require './controller/admin/reset_password_admin.php';
+    break;
+    
     case 'wishlist' :
     require './controller/wishlist.php';
     break;

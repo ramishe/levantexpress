@@ -36,8 +36,4 @@ var_dump($_POST);
 </body>
 </html>
    
-<?php
-/*
-<label for="security_number">security number qui est envoyé par provider</label><br>
-           <input type="text" name="security_number" placeholder="security_number" id="security_number"  required/><br><label for="mail">Email</label><br>  
-*/
+

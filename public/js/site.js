@@ -16,14 +16,15 @@ btnClose1.addEventListener('click', e => {
   
   
 $(document).ready(function($) {
+    //pour slideshow dans home page
     $('.diaporama').slick({
         autoplay:true,
-        autoplaySpeed: 1000,
+        autoplaySpeed: 5000,
         dots: true,
         arrows: true,
         infinite: true,
     });
-  
+  //monter les photos d'un produit avec un photo principale
     $('.diaporama_product').slick({
         slidesToShow: 5,
         slidesToScroll: 1,
@@ -40,7 +41,7 @@ $(document).ready(function($) {
         centerMode: false,
         focusOnSelect: true
     }); 
-    
+  //montrer les slides pour les logos des entreprises dans home page  
     $('.lazy').slick({
         lazyLoad: 'ondemand',
         slidesToShow: 5,
@@ -50,17 +51,21 @@ $(document).ready(function($) {
         autoplaySpeed: 500,
     });
 }); 
-    // Zoom
+
+// faire zoom pour la photo principale d'un produit
+    
+//déterminer le div qui contient la photo et evidement la photo
 let diapo_zoom = document.querySelectorAll('.diapo_principal_product_item');
+//déterminer le div dans lequel on va monter la photo en zoom
 let zoom_image_product= document.getElementById('zoom_image_product');
-if(diapo_zoom!=null) {
+if(diapo_zoom != null) {
     for(let i of diapo_zoom) {
         i.addEventListener('mouseover', function() {
-        zoomIn();
+        zoomIn();//Quand on passe la souris sur le de la photo; le div de zoom va apparaître 
         document.addEventListener('mousemove', coordonnees);
         });
         i.addEventListener('mouseout', function(e) {
-        zoomOut();
+        zoomOut();//Quand on passe la souris sur le de la photo; le div de zoom va disparaître 
         document.removeEventListener('mousemove', coordonnees);
         });
     }
@@ -73,7 +78,7 @@ function zoomIn(event) {
 function zoomOut() {
     zoom_image_product.classList.add('hidden');
 }
-     
+//function pour mettre les coordonnees du div de la photo dans l'autre div    
 function coordonnees(e) {
     let img = document.querySelector('.diapo_principal_photo_product');
     let position = img.getBoundingClientRect();
@@ -87,8 +92,7 @@ function coordonnees(e) {
     let Height = e.target.offsetHeight;
     let propX = (realWidth*2)/Width;
     let propY = realHeight/Height;
-    console.log(Width, Height);
-    zoom_image_product.innerHTML = '<img src="'+e.target.src+'" style="position:absolute; top:-'+y*propY+'px; left:-'+x*propX+'px;">';
+    zoom_image_product.innerHTML = '<img src="'+e.target.currentSrc+'" style="position:absolute; top:-'+y*propY+'px; left:-'+x*propX+'px;">';
 }
 
 let btn_add_produit = document.getElementsByClassName('btn_add_produit');

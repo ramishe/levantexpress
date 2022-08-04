@@ -11,9 +11,8 @@ $admin= new ManageAdmin();
 $ray= new ManageRayons();
 $cat= new ManageCategories();
 $prod = new ManageProducts();
-
+ 
 // Gestion des submit
-var_dump($_GET);
 if(isset($_GET['action'])){
     switch($_GET['action']){
         case 'newproduit' :
@@ -29,13 +28,12 @@ if(isset($_GET['action'])){
 }
 
 if(isset($_POST['submit'])) {
-    
+ 
     switch($_POST['submit']) {
         case 'Ajouter le produit' :
             $admin->addNewProduct($_POST, $_FILES);
             break;
         case 'Ajoutez les photos' :
-            var_dump($_POST);
             $id = intval($_POST['product_id']);
             $category_id = intval($_POST['category_id']);
             $admin->addNewPhotos($id,$category_id,$_FILES);

@@ -1,6 +1,4 @@
 <?php
-var_dump($_POST);
-
 require_once '../model/ManageCategory.php';
 require_once '../model/ManageProducts.php';
 

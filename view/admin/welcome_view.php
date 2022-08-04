@@ -1,5 +1,4 @@
 <?php
-var_dump($_SESSION);
 if(!isset($_SESSION["loggedin_admin"]) || $_SESSION["loggedin_admin"] !== true){
     header("location:../controller/admin/login.php");
     exit;
@@ -29,8 +28,6 @@ ob_start();
     <ul>
      <a href="index.php?page=welcome_admin&action=newproduit"><li>Ajouter un produit</li></a>
      <a href="index.php?page=welcome_admin&action=ajouterphotosproduit"><li>Ajouter des photo de produit</li></a>
-     <a href="index.php?page=welcome_admin&action=gererrayons"><li>gérer les rayons </li></a>
-     <a href="index.php?page=reset" class="btn btn-warning"><li>Réinitialiser mot de passe</li></a>
      <a href="index.php?page=logout_admin" class="btn btn-danger ml-3"><li>Déconnection</li></a>
     </ul>
    </div>

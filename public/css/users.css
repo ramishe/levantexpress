@@ -2,6 +2,9 @@
    text-align:center;
    color:#662D91;
 }
+.normal_champs{
+    margin:1%;
+}
 .container_user_page{
      display:flex;
     justify-content:space-between;

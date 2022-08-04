@@ -51,7 +51,7 @@ if(isset($_SESSION['cart'])){
             </tbody>
         </table>
         <div class="div_total_price_panier">
-            <p>Numbtre des articles: <?=$total_quantity?> </p>
+            <p>Numbre des articles: <?=$total_quantity?> </p>
             <p><strong>Total prix: <?=number_format($total_price, 2)?> €</strong></p>
         </div>
         

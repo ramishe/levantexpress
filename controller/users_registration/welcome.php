@@ -36,10 +36,7 @@ if(isset($_GET['action'])) {
             $u = $user_infos->fetch(PDO::FETCH_ASSOC);
             break;
 
-        case'mesaddresses':
-        break;
-        case'messouhaits':
-        break;
+        
     }
 }
         

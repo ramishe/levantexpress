@@ -7,7 +7,7 @@ if(isset($_SESSION["loggedin_admin"]) && $_SESSION["loggedin_admin"] === true){
 }
  
 // Include config file
-require_once "config.php";
+require_once "./config/config_admin.php";
  
 // Define variables and initialize with empty values
 $username = $password = "";
@@ -99,4 +99,4 @@ if( isset( $_POST ) && !empty( $_POST ) ){
     // Close connection
     mysqli_close($link);
 }
- require'login_view.php'; 
+ require'./view/admin/login_view.php'; 

@@ -12,7 +12,6 @@ ob_start();
     <ul>
      <a href="index.php?page=welcome&action=mescommandes"><li>Mes commandes</li></a>
      <a href="index.php?page=welcome&action=mesinfos"><li>Mon compte</li></a>
-     <a href="index.php?page=welcome&action=messouhaits"><li>liste de souhaits</li></a>
      <a href="index.php?page=reset" class="btn btn-warning"><li>Réinitialiser mot de passe</li></a>
      <a href="index.php?page=logout" class="btn btn-danger ml-3"><li>Déconnexion</li></a>
     </ul>
