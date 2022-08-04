@@ -1,7 +1,5 @@
 <?php
-
 ob_start();
-
 ?>
 <div class="titre">
    <h1>Mon compte</h1>
