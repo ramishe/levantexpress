@@ -6,8 +6,9 @@ while($r=$info_products->fetch(PDO::FETCH_ASSOC)){
      $price_promotion='';
     }
     else{
+     $price_anyway = $r['price']-($r['price']*$r['discount']/100);
      $promotion='<p>'.$r['discount'].'%</p>';   
-     $price_promotion='<p class="price_promotion">'.$r['price']-($r['price']*$r['discount']/100) .' <span class="type_money">€</span></p>';
+     $price_promotion='<p class="price_promotion">'.number_format($price_anyway, 2, '.', ',') .' <span class="type_money">€</span></p>';
                          }
        $content.='<div class="products_de_un_category">
                     
@@ -26,7 +27,7 @@ while($r=$info_products->fetch(PDO::FETCH_ASSOC)){
                              
                      </div>
                     <div class="price_products_dans_un_category">
-                        <p>'.$r['price'].'€</p>
+                        <p>'.number_format($price_anyway, 2, '.', ',').' €</p>
                     </div>
                         <a href="" id="'.$r['id'].'" class="btn_add_produit">Ajouter au panier</a>
                  </div>

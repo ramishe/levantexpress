@@ -3,9 +3,12 @@ $r = $info_product->fetch(PDO::FETCH_ASSOC);
 if($r['discount'] == 0){
     $promotion = '';
     $price_promotion = '';
+    $price_anyway = $r['price'];
+    $ancien_price = '' ;
 } else{
+    $price_anyway = $r['price']-($r['price']*$r['discount']/100);
     $promotion='<p>Promotion: '.$r['discount'].'%</p>';   
-    $price_promotion='<p class=""> Prix en promotion: '.$r['price']-($r['price']*$r['discount']/100) .' <span class="type_money">€</span></p>';
+    $price_promotion='<p class=""> Prix en promotion: '.number_format($price_anyway, 2, '.', ',') .' <span class="type_money">€</span></p>';
 }
                          
 ob_start();
@@ -47,14 +50,17 @@ ob_start();
                     $class = '';
                 }
                 $wishlist = '<a id="wl'.$r['id'].'" class="products_wishlist"><i class="fa-solid fa-heart fa-2x '.$class.'"></i></a>';
+               
                ?>
                <?= $wishlist?>
                
            </div>
            <p><?=$r['small_desc']?></p>
            <h4><?=$promotion?></h4>
-           
-           <h3>Prix: <?=$r['price']?>€ <?=$price_promotion?></h3>
+           <?php
+            $ancien_price = ($r['discount'] != 0 ) ? '<strike>'.$r['price']. '</strike>': $r['price'];
+            ?>
+           <h3>Prix: <?= $ancien_price ?>  <?=($price_anyway == $r['price'] ) ? "" : (number_format($price_anyway, 2, '.', ',')) ?> €</h3>
         <div class="">
             <h3>Description:</h3>
             <p><?=$r['description']?></p>

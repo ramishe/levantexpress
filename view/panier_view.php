@@ -37,7 +37,7 @@ if(isset($_SESSION['cart'])){
                     <td align="left"><img src="./public/images/categories/<?=$r['category_id']?>/<?=$r['photo_name']?>" class="cart-item-image"/><?=$r["name"]?></td>
                     <td><?=$r["discount"]?> %</td>
                     <td><?=$_SESSION['cart'][$r['id']]?></td>
-                    <td><strike><?= $price_ancien?> </strike> <?=$price_unitaire?> €</td>
+                    <td><strike><?= $price_ancien?> </strike> <?=number_format($price_unitaire,2)?> €</td>
                     <td><?= number_format($item_price,2) ?> €</td>
                     <td><a href="index.php?page=panier&action=remove&code=<?=$r['id']?>" class="btnRemoveAction"><i class="fa-solid fa-trash-can" fa-2xl></i></a></td>
                 </tr>
