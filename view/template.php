@@ -1,7 +1,7 @@
 <?php
 ob_start();
 ?> 
-      <a href="index.php?page=rayons" > Les rayons</a>
+      <a href="index.php?page=rayons" > Les rayonssssssssss</a>
       <a href="index.php">Accueil</a>
       <a href="index.php?page=allproducts">Les produits</a>
       <a href="index.php?page=promotion">Promotion</a>
